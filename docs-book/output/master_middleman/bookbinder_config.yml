@@ -1,0 +1,20 @@
+---
+:archive_menu:
+  ".": 
+:production_host: hello
+:subnav_templates:
+  redis-labs-enterprise: redis-labs-enterprise_subnav
+:template_variables: 
+:local_repo_dir: "/Users/jday/workspace/docs-redislabs-enterprise"
+:workspace: !ruby/object:Pathname
+  path: "/Users/jday/workspace/docs-redislabs-enterprise/docs-book/output/master_middleman/source"
+:feedback_enabled: 
+:repo_link_enabled: true
+:repo_links:
+  redis-labs-enterprise:
+    repo: docs-content
+    ref: master
+    at_path: 
+:product_info:
+  redis-labs-enterprise: {}
+:elastic_search: false
