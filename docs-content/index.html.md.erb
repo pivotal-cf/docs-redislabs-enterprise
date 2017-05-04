@@ -1,38 +1,95 @@
 ---
-title: Redis Labs Enterprise for PCF
+title: YOUR-PRODUCT-NAME (Beta)
 owner: Partners
 ---
+<style>
+    .note.warning {
+        background-color: #fdd;
+        border-color: #fbb
+    }
 
-**This topic should begin with a brief description of your product. See below for an example.**
+    .note.warning:before {
+        color: #f99;
+     }
+</style>
 
-This documentation describes the Redis Labs Enterprise Cluster (RLEC) Service Broker for Pivotal Cloud Foundry (PCF). 
-The RLEC Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace. 
-Developers can provision Redis databases by creating instances of the service plans using Apps Manager or the 
-Cloud Foundry Command Line Interface (cf CLI).
+<p class="note warning">
+<strong>WARNING! </strong>
+The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
+Do not use this product in a PCF production environment.
+</p>
+
+**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
+whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
+
+This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
+Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
+
+**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
+[Pivotal Network](http://network.pivotal.io).
 
 ## <a id='overview'></a>Overview
 
-**The overview should provide a description of the product's key features.**
+**The overview describes the service that your product offers to PCF developers. See below for an example.**
 
-Redis Labs Enterprise for PCF includes the following key features:
+The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
+Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
+Line Interface (cf CLI) and bind them to their apps.
+
+Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
+handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
+handling between clients and the app.
+
+**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
+[Pivotal Network](http://network.pivotal.io).
+
+## <a id='features'></a>Key Features
+
+YOUR-PRODUCT-NAME includes the following key features:
 
 * Feature one.
 * Feature two.
 * Feature three.
 
+**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
+[Pivotal Network](http://network.pivotal.io).
+
 ## <a id="snapshot"></a>Product Snapshot
 
-<dl>
-<dt>Redis Labs Enterprise for PCF details:</dt>
-<dd><strong>Version</strong>: vYOUR-VERSION-NUMBER </dd>
-<dd><strong>Release date</strong>: YOUR-RELEASE-DATE (Ex: August 1, 2016)</dd>
-<dd><strong>Software component version</strong>: vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</dd>
-<dd><strong>Compatible Ops Manager version(s)</strong>: vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.6.x, v1.7.x)</dd>
-<dd><strong>Compatible Elastic Runtime version(s)</strong>: vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.4.x, v1.5.x, v1.6.x)</dd>
-<dd><strong>vSphere support?</strong> Yes-OR-No</dd>
-<dd><strong>OpenStack support?</strong> Yes-OR-No</dd>
-<dd><strong>AWS support?</strong> Yes-OR-No</dd>
-</dl>
+The following table provides version and version-support information about PRODUCT-NAME.
+
+<table class="nice">
+    <th>Element</th>
+    <th>Details</th>
+    <tr>
+        <td>Version</td>
+        <td>vYOUR-VERSION-NUMBER</td>
+    </tr>
+    <tr>
+        <td>Release date</td>
+        <td>YOUR-RELEASE-DATE (Ex: July 1, 2017)</td>
+    </tr>
+    <tr>
+        <td>Software component version</td>
+        <td>vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+    </tr>
+    <tr>
+        <td>Compatible Ops Manager version(s)</td>
+        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
+    </tr>
+    <tr>
+        <td>Compatible Elastic Runtime version(s)</td>
+        <td>vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
+    </tr>
+    <tr>
+        <td>IaaS support</td>
+        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+    </tr>
+    <tr>
+        <td>IPsec support?</td>
+        <td>[Yes or No]</td>
+    </tr>
+</table>
 
 ## <a id="reqs"></a>Requirements
 
@@ -40,7 +97,7 @@ Redis Labs Enterprise for PCF includes the following key features:
 A general requirement might be something like, "An AppDynamics account." 
 A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
 
-Redis Labs Enterprise for PCF has the following requirements:
+YOUR-PRODUCT-NAME has the following requirements:
 
 + PREREQUISITE-1
 
