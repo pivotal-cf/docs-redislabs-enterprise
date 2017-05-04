@@ -1,6 +1,6 @@
 ## Instructions for Creating Partner Doc from the Pivotal Cloud Foundry Partners Template
 
-Product name: Redis Labs Enterprise for PCF
+Product name: Redis Enterprise Pack for PCF
 
 This template helps partners prepare documentation for Pivotal Cloud Foundry (PCF) partner services that appear on [Pivotal Network](https://network.pivotal.io/). 
 
