@@ -15,15 +15,15 @@ You will need to import the Redis<sup>e</sup> Pack .pivotal file into your Pivot
 <a id='install-step2'></a>
 ## Step 2 - Configure Redis<sup>e</sup> Pack
 1. Click the newly imported tile.<br /> ![Imported tile](./images/pcf_pre-install_tile.png)
-1. Navigate to the "Assign AZs and Network" section on the right navigation bar. Ensure you have a network selected for the cluster to use.
-1. Navigate to the “Redis Enterprise Pack” section on the right navigation bar. You will need to provide the following details:
+1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have a network selected for the cluster to use.
+1. Navigate to the **Redis Enterprise Pack** section on the right navigation bar. You will need to provide the following details:
 1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:
     * **Cluster Name**: Provide a sub-domain for the cluster name. The cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. This is the connection string for Redis applications will use to connect to Redis databases on Redis<sup>e</sup> Pack.
     * **Admin Email**: Provide an email which will have full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
     * **Admin account password**: Provide the password for the administrative account.<br /><br />
 For production clusters, you can also provide a set of static IPs addresses to use for cluster nodes and enabled Multiple Availability Zone (Rack) awareness.
     ![Import button](./images/pcf_rp_config_full_screen.png)
-1. Navigate to the “Resource Config” section on the right navigation bar. Ensure there are resources assigned to the required resources for Redis<sup>e</sup> Pack.<br /><br />
+1. Navigate to the **Resource Config** section on the right navigation bar. Ensure there are resources assigned to the required resources for Redis<sup>e</sup> Pack.<br /><br />
 <i>**Note**: It is important to ensure the capacity used for RP cluster nodes meet the minimum HW specification requirements for Redis<sup>e</sup> Pack. The minimum HW specification can be found in the RP documentation [here](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/).</i>
 
 <a id='install-step3'></a>
