@@ -13,7 +13,7 @@ You will need to import the Redis<sup>e</sup> Pack .pivotal file into your Pivot
 ![Import button](./images/pcf_view_ops_manger.png)
 
 <a id='install-step2'></a>
-## Step #2 - Configure Redis<sup>e</sup> Pack
+## Step 2 - Configure Redis<sup>e</sup> Pack
 1. Click the newly imported tile.<br /> ![Imported tile](./images/pcf_pre-install_tile.png)
 1. Navigate to the "Assign AZs and Network" section on the right navigation bar. Ensure you have a network selected for the cluster to use.
 1. Navigate to the “Redis Enterprise Pack” section on the right navigation bar. You will need to provide the following details:
@@ -35,12 +35,11 @@ For production clusters, you can also provide a set of static IPs addresses to u
 ## Step 4 - Create a New Database on the Redis<sup>e</sup> Pack Cluster
 1. Connect to the Redis<sup>e</sup> Pack Admin Console using the "**Cluster Name**" you previously specified at the following URL: https://rpadmin.cluster-name
 1. Log in using the Administrator email account and password you specified above in the tile configuration.
-1. Navigate to the "**databases**" tab and create a new database by selecting "**redis db**"
-1. On the "**new redis db**" page, click the "**show advanced option**" link and enter "**database1**" for the database name and "**12000**" for the endpoint port number. Then click “Activate” to create your database.
+1. Navigate to the "**databases**" tab and create a new database by selecting "**redis db**".<br />![Import button](./images/pcf-new-redis-db.png)
+1. On the "**new redis db**" page, enter "**database1**" for the database name and then click the "**show advanced option**" link and for the "**endpoint port number**" input "**12000**".<br />![Import button](./images/pcf-new-redis-db2.png)
+1. Click "**Activate**" to create your database.
 
-You now have a Redis database!
-
-Note: You can also access the REST API using the following URL: https://rpapi.cluster-name
+You now have a Redis database on Redis<sup>e</sup> Pack!
 
 <a id='install-step5'></a>
 ## Step 5 - Connect to Redis Database Using redis-cli
@@ -55,4 +54,4 @@ OK
 127.0.0.1:16653> get key1
 "123"
 ```
-For more information about Redis<sup>e</sup> Pack in general, please [see their documentation site](https://redislabs.com/redis-enterprise-documentation/overview/)
+For more information about Redis<sup>e</sup> Pack in general, please [see the product documentation site](https://redislabs.com/redis-enterprise-documentation/overview/).
