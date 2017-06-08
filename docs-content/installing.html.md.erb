@@ -1,28 +1,57 @@
 ---
-title: Installing and Configuring YOUR-PRODUCT-NAME
+title: Installing and Configuring Redis Enterprise Pack for PCF
 owner: Partners
 ---
 
-This topic describes how to install and configure YOUR-PRODUCT-NAME.
+This topic describes how to install and configure Redis<sup>e</sup> Pack for Pivotal Cloud Foundry (PCF).
+<a id='install'></a>
+## Step 1 - Import the Redis<sup>e</sup> Pack Tile
 
-##<a id='install'></a> Install and Configure YOUR-PRODUCT-NAME
+You will need to import the Redis<sup>e</sup> Pack .pivotal file into your Pivotal Cloud Foundry environment to get started.
+    * You can download the .pivotal file for Redis<sup>e</sup> Pack [here](https://network.pivotal.io/products/redis-labs-enterprise-cluster-for-pcf-service-broker).
+    * Navigate to your Ops Manager URL and click on **Import a Product** button and select the downloaded .pivotal file for Redis<sup>e</sup> Pack
+![Import button](./images/pcf_view_ops_manger.png)
 
-1. Download the product file from Pivotal Network.
+<a id='install-step2'></a>
+## Step 2 - Configure Redis<sup>e</sup> Pack
+1. Click the newly imported tile.<br /> ![Imported tile](./images/pcf_pre-install_tile.png)
+1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have a network selected for the cluster to use.
+1. Navigate to the **Redis Enterprise Pack** section on the right navigation bar. You will need to provide the following details:
+1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:
+    * **Cluster Name**: Provide a sub-domain for the cluster name. The cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. This is the connection string for Redis applications will use to connect to Redis databases on Redis<sup>e</sup> Pack.
+    * **Admin Email**: Provide an email which will have full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
+    * **Admin account password**: Provide the password for the administrative account.<br /><br />
+For production clusters, you can also provide a set of static IPs addresses to use for cluster nodes and enabled Multiple Availability Zone (Rack) awareness.
+    ![Import button](./images/pcf_rp_config_full_screen.png)
+1. Navigate to the **Resource Config** section on the right navigation bar. Ensure there are resources assigned to the required resources for Redis<sup>e</sup> Pack.<br /><br />
+<i>**Note**: It is important to ensure the capacity used for RP cluster nodes meet the minimum HW specification requirements for Redis<sup>e</sup> Pack. The minimum HW specification can be found in the RP documentation [here](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/).</i>
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+<a id='install-step3'></a>
+## Step 3 - Deploy the Redis<sup>e</sup> Pack Cluster
+1. Once the tile configuration is done, you can save the changes and click the "**Apply changes**" to deploy the cluster.<br />![Import button](./images/post-install-dashboard.png)
+1. You can switch into the tile and to the "**Status**" tab to view the state of the cluster nodes under the jobs named "redis-pack-node" and "redis-pack-service-broker".
 
-1. Under the **Import a Product** button, click **+** next to the version number of YOUR-PRODUCT-NAME. 
-This adds the tile to your staging area.
+<a id='install-step4'></a>
+## Step 4 - Create a New Database on the Redis<sup>e</sup> Pack Cluster
+1. Connect to the Redis<sup>e</sup> Pack Admin Console using the "**Cluster Name**" you previously specified at the following URL: https://rpadmin.cluster-name
+1. Log in using the Administrator email account and password you specified above in the tile configuration.
+1. Navigate to the "**databases**" tab and create a new database by selecting "**redis db**".<br />![Import button](./images/pcf-new-redis-db.png)
+1. On the "**new redis db**" page, enter "**database1**" for the database name and then click the "**show advanced option**" link and for the "**endpoint port number**" input "**12000**".<br />![Import button](./images/pcf-new-redis-db2.png)
+1. Click "**Activate**" to create your database.
 
-1. Click the newly added **YOUR-PRODUCT-NAME** tile.
+You now have a Redis database on Redis<sup>e</sup> Pack!
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+<a id='install-step5'></a>
+## Step 5 - Connect to Redis Database Using redis-cli
 
-1. Click **Save**.
+redis-cli is a simple command-line tool to interact with Redis database. You can connect to one of the IP addresses of the nodes through ssh and find redis-cli under `/opt/redislabs/bin/redis-cli`
+Run redis-cli, located in the /opt/redislabs/bin directory, to connect to port 12000 and to the database-endpoint that is reported in the database properties after you created the database. Here is how you can store and retrieve a key in database1
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install YOUR-PRODUCT-NAME tile.
-
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+```
+# sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
+127.0.0.1:16653> set key1 123
+OK
+127.0.0.1:16653> get key1
+"123"
+```
+For more information about Redis<sup>e</sup> Pack in general, please [see the product documentation site](https://redislabs.com/redis-enterprise-documentation/overview/).
