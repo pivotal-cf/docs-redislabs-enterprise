@@ -1,5 +1,5 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: Redis Enterprise Pack for PCF
 owner: Partners
 ---
 <style>
@@ -13,105 +13,71 @@ owner: Partners
      }
 </style>
 
-<p class="note warning">
-<strong>WARNING! </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
-Do not use this product in a PCF production environment.
-</p>
+Redis<sup>e</sup> Pack clusters are enterprise grade, highly available and scalable Redis clusters with substantially lower operational overhead than any other Redis deployment method.
 
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
+Redis<sup>e</sup> Pack extends open source Redis and delivers tangible benefits of stable high performance, zero-downtime linear scaling and hassle-free true high availability, with significant operational savings.
 
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
-
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+This documentation describes Redis<sup>e</sup> Pack for Pivotal Cloud Foundry (PCF).
+Redis<sup>e</sup> Pack for PCF exposes its service plans on the Marketplace.
+Developers can provision highly available and scalable Redis databases by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
 
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. See below for an example.**
+Redis<sup>e</sup> Pack is an enterprise-grade cluster that acts as a container for managing and running multiple Redis databases in a highly available and scalable manner.
 
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
-Line Interface (cf CLI) and bind them to their apps.
+By default, a three node Redise Pack cluster is deployed on your behalf. This is configurable under "**Resource Config**".
 
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
-handling between clients and the app.
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
-
-## <a id='features'></a>Key Features
-
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one.
-* Feature two.
-* Feature three.
-
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+For more specific information and a Getting Started, see the [Redis<sup>e</sup> Pack documentation](https://redislabs.com/redis-enterprise-documentation/overview/).
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version-support information about Redis<sup>e</sup> Pack for Pivotal Cloud Foundry (PCF).
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.6.4</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2017)</td>
+        <td>June 5, 2017</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>Redis<sup>e</sup> Pack v4.4</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
+        <td>v1.10.x</td>
     </tr>
     <tr>
         <td>Compatible Elastic Runtime version(s)</td>
-        <td>vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.8.x, v1.9.x, v1.10.x)</td>
+        <td>v1.4.x, v1.5.x, v1.6.x, v1.7.x, v1.8.x, v1.9.x, v1.10.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
-    </tr>
-    <tr>
-        <td>IPsec support?</td>
-        <td>[Yes or No]</td>
+        <td>AWS, Azure, and vSphere</td>
     </tr>
 </table>
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
-
-YOUR-PRODUCT-NAME has the following requirements:
-
-+ PREREQUISITE-1
-
-+ PREREQUISITE-2
+Redis<sup>e</sup> Pack Service for Pivotal Cloud Foundry requires a valid license from Redis Labs for the Redis<sup>e</sup> Pack cluster. Otherwise you receive a 30 day trial license by default.
 
 ## <a id="limitations"></a>Limitations
 
-**List any known limitations.**
+At this time, Redis<sup>e</sup> Pack Service for Pivotal Cloud Foundry is limited to one cluster per deployment.
 
 ## <a id="feedback"></a>Feedback
 
-Please provide any bugs, feature requests, or questions to the 
-[Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to support@redislabs.com.
+
+## <a id='release-notes'></a>Release Notes
+
+Please see the release notes in the left nav for more information.
 
 ## <a id='license'></a>License
 
-**List any license information here.**
+Customers interested in using Redis<sup>e</sup> Pack for PCF can download the tile and install it with the trial license limitations. To obtain a production license and world class 24/7 support, please contact a [Redis Labs sales representative](mailto:sales@redislabs.com).
