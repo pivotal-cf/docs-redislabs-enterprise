@@ -28,15 +28,12 @@ This adds the tile to your staging area.
 
 1. Navigate to the **Redis Enterprise Pack** section on the right navigation bar. Enter the following details:
 
-1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:
-    
-* **Cluster Name**: Provide a sub-domain for the cluster name. The Redis<sup>e</sup> Pack cluster name is a sub-domain under the system domain, which is found under the Pivotal Elastic Runtime in Ops Manager. 
+1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:   
+  * **Cluster Name**: Provide a sub-domain for the cluster name. The Redis<sup>e</sup> Pack cluster name is a sub-domain under the system domain, which is found under the Pivotal Elastic Runtime in Ops Manager. 
 
-    For example, set the cluster name as `CLUSTERNAME.redislabs.com` if your system domain is `redislabs.com`. The cluster name specified represents part of the connection string for Redis applications when connecting to Redis<sup>e</sup> Pack databases using DNS-based connections.
-    
-* **Admin Email**: Provide an email that has full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
-    
-* **Admin account password**: Provide the password for the administrative account.
+        For example, set the cluster name as `CLUSTERNAME.redislabs.com` if your system domain is `redislabs.com`. The cluster name specified represents part of the connection string for Redis applications when connecting to Redis<sup>e</sup> Pack databases using DNS-based connections.
+  * **Admin Email**: Provide an email that has full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
+  * **Admin account password**: Provide the password for the administrative account.
 
     For production clusters, you can also provide a set of static IPs addresses to use for cluster nodes and enabled Multiple Availability Zone (Rack) awareness.
     ![Import button](./images/pcf_rp_config_full_screen2.png)
