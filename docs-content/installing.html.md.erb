@@ -9,9 +9,9 @@ This topic describes how to install and configure Redis<sup>e</sup> Pack for Piv
 
 1. Download the product file from Pivotal Network.
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of Redis<sup>e</sup> Pack for PCF. 
+1. Under the **Import a Product** button, click **+** next to the version number of Redis<sup>e</sup> Pack for PCF.
 This adds the tile to your staging area.
 
 
@@ -29,7 +29,7 @@ This adds the tile to your staging area.
 1. Navigate to the **Redis Enterprise Pack** section on the right navigation bar. Enter the following details:
 
 1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:
-    * **Cluster Name**: Provide a sub-domain for the cluster name. The cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. This is the connection string for Redis apps use to connect to Redis databases on Redis<sup>e</sup> Pack.
+    * **Cluster Name**: Provide a sub-domain for the cluster name. The Redis<sup>e</sup> Pack cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. For example, set the cluster name as "cluster.redislabs.com" if your system domain is "redislabs.com". The cluster name specified represents part of the connection string for Redis applications when connecting to Redis<sup>e</sup> Pack databases using DNS based connections.
     * **Admin Email**: Provide an email that has full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
     * **Admin account password**: Provide the password for the administrative account.
 
@@ -37,7 +37,7 @@ This adds the tile to your staging area.
     ![Import button](./images/pcf_rp_config_full_screen2.png)
 1. Navigate to the **Resource Config** section on the right navigation bar. Ensure there are resources assigned to the required resources for Redis<sup>e</sup> Pack.<br />![Import button](./images/pcf_resource_config.png)<br /><br />
 
-    <p class="note"><strong>Important</strong>: Ensure the capacity used for Redis<sup>e</sup> Pack cluster nodes meet the minimum hardware specification requirements for Redis<sup>e</sup> Pack. 
+    <p class="note"><strong>Important</strong>: Ensure the capacity used for Redis<sup>e</sup> Pack cluster nodes meet the minimum hardware specification requirements for Redis<sup>e</sup> Pack.
     For more information, see <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/"> the minimum hardware specifications</a> in the Redis<sup>e</sup> Pack documentation.</p>
 
 1. Click **Save**.
@@ -57,8 +57,8 @@ This adds the tile to your staging area.
 1. Navigate to the **databases** tab and create a new database by selecting **redis db**.
     ![Import button](./images/pcf-new-redis-db.png)
 
-1. On the **new redis db** page, in the **Name** field, enter `database1` and then click the **Show advanced options** link. 
-1. In the **Endpoint port number** field, enter `12000`. 
+1. On the **new redis db** page, in the **Name** field, enter `database1` and then click the **Show advanced options** link.
+1. In the **Endpoint port number** field, enter `12000`.
     ![Import button](./images/pcf-new-redis-db2.png)
 
 1. Click **Activate** to create your database.
@@ -67,13 +67,13 @@ You now have a Redis database on Redis<sup>e</sup> Pack.
 
 ## <a id='install-step5'></a>Connect to Redis Database Using redis-cli
 
-`redis-cli` is a simple command-line tool for interacting with Redis database. 
+`redis-cli` is a simple command-line tool for interacting with Redis database.
 
 To connect to Redis Database do the following:
 
 1. Connect to one of the IP addresses of the nodes through SSH and find `redis-cli` under `/opt/redislabs/bin/redis-cli`.
 
-1. Change to the `/opt/redislabs/bin` directory and run `redis-cli` to connect to port 12000, and to the database-endpoint that is reported in the database properties after you created the database. 
+1. Change to the `/opt/redislabs/bin` directory and run `redis-cli` to connect to port 12000, and to the database-endpoint that is reported in the database properties after you created the database.
 
     ```
     # sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
