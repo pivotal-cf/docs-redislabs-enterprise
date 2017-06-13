@@ -9,14 +9,14 @@ require_relative 'quicklinks_renderer'
 I18n.enforce_available_locales = false
 
 module Bookbinder
-  module Navigation
-    class << self
-      def registered(app)
-        app.helpers HelperMethods
-      end
+  class Helpers < ::Middleman::Extension
+    # class << self
+    #   def registered(app)
+    #     app.helpers HelperMethods
+    #   end
 
-      alias :included :registered
-    end
+    #   alias :included :registered
+    # end
 
     module HelperMethods
 
@@ -72,7 +72,7 @@ module Bookbinder
 
       def render_repo_link
         if config[:repo_link_enabled] && repo_url && !current_page.metadata[:page][:repo_link_disabled]
-          "<a id='repo-link' href='#{repo_url}'>View the source for this page in GitHub</a>"
+          "<a id='repo-link' href='#{repo_url}'>Create a pull request or raise an issue on the source for this page in GitHub</a>"
         end
       end
 
@@ -107,6 +107,10 @@ module Bookbinder
         config[:product_info].fetch(template_key, {})
       end
 
+      def production_host
+        config[:production_host]
+      end
+
       def quick_links
         page_src = File.read(current_page.source_file)
         quicklinks_renderer = QuicklinksRenderer.new(vars)
@@ -139,11 +143,7 @@ module Bookbinder
       private
 
       def subnav_template_name
-        if current_path == 'search.html'
-          config[:subnav_templates].values.first
-        else
-          config[:subnav_templates][template_key] || 'default'
-        end
+        config[:subnav_templates][template_key] || 'default'
       end
 
       def decreasingly_specific_namespaces
@@ -254,6 +254,9 @@ module Bookbinder
         content_tag :li, link, :class => css_class
       end
     end
+    
+    helpers HelperMethods
+    
   end
 end
-::Middleman::Extensions.register(:navigation, Bookbinder::Navigation)
+::Middleman::Extensions.register(:bookbinder, Bookbinder::Helpers)

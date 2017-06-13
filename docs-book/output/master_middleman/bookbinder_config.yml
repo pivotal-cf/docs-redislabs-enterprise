@@ -18,3 +18,4 @@
 :product_info:
   redis-labs-enterprise: {}
 :elastic_search: false
+:proof: false
