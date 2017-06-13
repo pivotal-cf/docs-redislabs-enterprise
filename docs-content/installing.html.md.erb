@@ -18,7 +18,7 @@ You will need to import the Redis<sup>e</sup> Pack .pivotal file into your Pivot
 1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have a network selected for the cluster to use.
 1. Navigate to the **Redis Enterprise Pack** section on the right navigation bar. You will need to provide the following details:
 1. From the **Settings** tab, click **Redis<sup>e</sup> Pack** and complete the following fields:
-    * **Cluster Name**: Provide a sub-domain for the cluster name. The cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. This is the connection string for Redis applications will use to connect to Redis databases on Redis<sup>e</sup> Pack.
+    * **Cluster Name**: Provide a sub-domain for the cluster name. The Redis<sup>e</sup> Pack cluster name is a sub-domain under the "System Domain" which is found under the "Pivotal Elastic Runtime" in Ops Manager. For example, set the cluster name as "cluster.redislabs.com" if your system domain is "redislabs.com". The cluster name specified represents part of the connection string for Redis applications when connecting to Redis<sup>e</sup> Pack databases using DNS based connections.
     * **Admin Email**: Provide an email which will have full administrative privileges to the new Redis<sup>e</sup> Pack cluster.
     * **Admin account password**: Provide the password for the administrative account.<br /><br />
 For production clusters, you can also provide a set of static IPs addresses to use for cluster nodes and enabled Multiple Availability Zone (Rack) awareness.
