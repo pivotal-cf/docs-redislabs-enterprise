@@ -10,6 +10,7 @@ These are release notes for Redis Enterprise Pack for PCF.
 **Release Date:** December 1, 2017
 
 <h2>New Features</h2>
+
 **Support for Redis' Cluster API**<br>
 The Redis Cluster API support in Redis Enterprise Pack (RP) provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
 
@@ -24,8 +25,8 @@ Redis Modules enable you to extend the functionality of Redis Enterprise Pack. O
 
 There are three modules Redis Labs has developed and certified with Redis Enterprise Pack (RP). The modules are:
 <ul>
- 	<li><a href="/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns RP into a supercharged distributed in-memory full-text indexing and search beast.</li>
- 	<li><a href="/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience JSON as a built-in data type and easily able to address nested data via a path.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns RP into a supercharged distributed in-memory full-text indexing and search beast.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience JSON as a built-in data type and easily able to address nested data via a path.</li>
  	<li>ReBloom - Enables RP to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that do a very good job at quickly determining if something is contained within a set.</li>
 </ul>
 **Custom Modules**
@@ -34,13 +35,14 @@ In addition, Redis Enterprise Pack provides the ability to load and use custom m
 **LDAP Integration**
 As part of our continued emphasis on security, administrative user accounts in Redis Enterprise Pack can now use either built-in authentication or authenticate externally via LDAP with saslauthd. The accounts can be used for administering resources on the cluster via command line, Rest API, or Web UI.
 
-For more information see <a href="/redis-enterprise-documentation/administering/security/ldap-integration/">LDAP Integration</a>.
+For more information see <a href="https://www.redislabs.com/redis-enterprise-documentation/administering/security/ldap-integration/">LDAP Integration</a>.
 
-**Additional Capabilities**<br>
+**Additional Capabilities**
 Support for additional Redis commands and features:
 <ul>
  	<li>Support for Redis version 4.0.2</li>
 </ul>
+
 **Information**
 <ul>
  	<li>In the node bootstrap API, the structure of the JSON has changed for adding an external IP during the bootstrap process.</li>
