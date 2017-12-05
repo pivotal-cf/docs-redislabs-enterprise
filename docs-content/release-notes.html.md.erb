@@ -15,18 +15,19 @@ These are release notes for Redis Enterprise Pack for PCF.
 The Redis Cluster API support in Redis Enterprise Pack (RP) provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
 
 **Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB)**
-Developing globally distributed applications can be challenging, as developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent.
+Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent.
 
-For information, go to <a href="https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/">Developing with CRDBs</a>.
+For information, see <a href="https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/">Developing with CRDBs</a>.
 
 **Redis Modules** <br>
-Redis Modules enable you to extend the functionality of Redis Enterprise Pack. One can add new data types, capabilities, etc. to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
+Redis Modules enable you to extend the functionality of Redis Enterprise Pack. One can add new data types, capabilities, and more, to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
+
 **Redis Labs' Modules**
 
 There are three modules Redis Labs has developed and certified with Redis Enterprise Pack (RP). The modules are:
 <ul>
  	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns RP into a supercharged distributed in-memory full-text indexing and search beast.</li>
- 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience JSON as a built-in data type and easily able to address nested data via a path.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience of JSON as a built-in data type and can address nested data via a path easily.</li>
  	<li>ReBloom - Enables RP to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that do a very good job at quickly determining if something is contained within a set.</li>
 </ul>
 **Custom Modules**
