@@ -5,6 +5,20 @@ owner: Partners
 
 These are release notes for Redis Enterprise Pack for PCF.
 
+##<a id="ver"></a> v5.0.1 (BETA)
+
+**Release Date:** 21 January 2018
+
+<h2>New Features</h2>
+
+**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple PCF Foundations**
+Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent. This also includes support for TCP Routers.
+
+For information, see <a href="https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/">Developing with CRDBs</a>.
+
+**Smoke Tests**
+Smoke-tests are a set of tests that test the functionality of the Redis Enterprise in PCF. We are introducing a smoke-test that can be used by the PCF Operator to test the functionality of redis-enterprise.
+
 ##<a id="ver"></a> v5.0.0 (BETA)
 
 **Release Date:** December 6, 2017
@@ -13,11 +27,6 @@ These are release notes for Redis Enterprise Pack for PCF.
 
 **Support for Redis' Cluster API**<br>
 The Redis Cluster API support in Redis Enterprise Pack (RP) provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
-
-**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB)**
-Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent.
-
-For information, see <a href="https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/">Developing with CRDBs</a>.
 
 **Redis Modules** <br>
 Redis Modules enable you to extend the functionality of Redis Enterprise Pack. One can add new data types, capabilities, and more, to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
