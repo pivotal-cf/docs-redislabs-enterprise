@@ -5,45 +5,57 @@ owner: Partners
 
 These are release notes for Redis Enterprise Pack for PCF.
 
-##<a id="ver"></a> v5.0.1 (BETA)
+<h2><a id="ver"></a> 5.0.1100013 (BETA)</h2>
+
+**Release Date:** February 5, 2018
+
+<h3>New Features</h3>
+
+- PCF 1.12.12 support
+- Better syslog integration with PCF logging system  - 16719
+- Smoke-tests for the Tile - 16713
+- CF-CLI has been upgraded to support API version 2.94.0 + . (18246)
+
+<h2><a id="ver"></a> 5.0.1100012 (BETA)</h2>
 
 **Release Date:** January 21, 2018
 
-<h2>New Features</h2>
+<h3>New Features</h3>
 
 **Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple PCF Foundations**
 Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent. This also includes support for TCP Routers.
 
 For information, see <a href="https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/">Developing with CRDBs</a>.
 
-**Smoke Tests**
-Smoke-tests are a set of tests that test the functionality of the Redis Enterprise in PCF. We are introducing a smoke-test that can be used by the PCF Operator to test the functionality of redis-enterprise.
+- PCF CRDB Integration using PCF TCP Router  16720, 16721
+- CRDB Support without DNS (doc item #6) & 16711
+- Tile uses PCF  system domain to deploy tile  16045
 
-##<a id="ver"></a> v5.0.0 (BETA)
+<h1><a id="ver"></a> v5.0.0 (BETA)</h1>
 
 **Release Date:** December 6, 2017
 
 <h2>New Features</h2>
 
 **Support for Redis' Cluster API**<br>
-The Redis Cluster API support in Redis Enterprise Pack (RP) provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
+The Redis Cluster API support in Redis Enterprise provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
 
 **Redis Modules** <br>
-Redis Modules enable you to extend the functionality of Redis Enterprise Pack. One can add new data types, capabilities, and more, to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
+Redis Modules enable you to extend the functionality of Redis Enterprise. One can add new data types, capabilities, and more, to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
 
 **Redis Labs' Modules**
 
-There are three modules Redis Labs has developed and certified with Redis Enterprise Pack (RP). The modules are:
+There are three modules Redis Labs has developed and certified with Redis Enterprise. The modules are:
 <ul>
- 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns RP into a supercharged distributed in-memory full-text indexing and search beast.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns Redis Enterprise into a supercharged distributed in-memory full-text indexing and search beast.</li>
  	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience of JSON as a built-in data type and can address nested data via a path easily.</li>
- 	<li>ReBloom - Enables RP to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that do a very good job at quickly determining if something is contained within a set.</li>
+ 	<li><a href="https://redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/">ReBloom</a> - Enables Redis Enterprise to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that do a very good job at quickly determining if something is contained within a set.</li>
 </ul>
 **Custom Modules**
-In addition, Redis Enterprise Pack provides the ability to load and use custom modules from <a href="http://redismodules.com/">redismodules.com</a> or of your own creation.
+In addition, Redis Enterprise provides the ability to load and use custom modules from <a href="http://redismodules.com/">redismodules.com</a> or of your own creation.
 
 **LDAP Integration**
-As part of our continued emphasis on security, administrative user accounts in Redis Enterprise Pack can now use either built-in authentication or authenticate externally via LDAP with saslauthd. The accounts can be used for administering resources on the cluster via command line, Rest API, or Web UI.
+As part of our continued emphasis on security, administrative user accounts in Redis Enterprise can now use either built-in authentication or authenticate externally via LDAP with saslauthd. The accounts can be used for administering resources on the cluster via command line, Rest API, or Web UI.
 
 For more information see <a href="https://www.redislabs.com/redis-enterprise-documentation/administering/security/ldap-integration/">LDAP Integration</a>.
 
@@ -58,13 +70,13 @@ Support for additional Redis commands and features:
  	<li>In the node bootstrap API, the structure of the JSON has changed for adding an external IP during the bootstrap process.</li>
 </ul>
 
-##<a id="ver"></a> v0.0.84
+<h1>##<a id="ver"></a> v0.0.84</h1>
 
 **Release Date:** December 1, 2017
 
 Beta version of this tile with Support for Redis version 4.0.2.
 
-##<a id="ver"></a> v0.0.81
+<h1>##<a id="ver"></a> v0.0.81</h1>
 
 **Release Date:** June 15, 2017
 
