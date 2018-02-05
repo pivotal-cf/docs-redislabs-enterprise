@@ -5,22 +5,22 @@ owner: Partners
 
 These are release notes for Redis Enterprise Pack for PCF.
 
-<h2><a id="ver"></a> 5.0.1180018 (BETA)</h2>
+##<a id="ver"></a> 5.0.1180018 (BETA)
 
 **Release Date:** February 5, 2018
 
-<h3>New Features</h3>
+###New Features
 
 - Built and tested new tile with PCF 1.12.12 (Both ERT and Ops manager)
 - Updated Redislabs enterprise cluster version to 5.0.1-17
 - Upgrade support in Redis-Enterprise tile
 - Syslog integration
 
-<h2><a id="ver"></a> 5.0.1100012 (BETA)</h2>
+##<a id="ver"></a> 5.0.1100012 (BETA)
 
 **Release Date:** January 21, 2018
 
-<h3>New Features</h3>
+###New Features
 
 **Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple PCF Foundations**
 Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent. This also includes support for TCP Routers.
@@ -31,11 +31,11 @@ For information, see <a href="https://www.redislabs.com/redis-enterprise-documen
 - CRDB Support without DNS (doc item #6) & 16711
 - Tile uses PCF  system domain to deploy tile  16045
 
-<h1><a id="ver"></a> v5.0.0 (BETA)</h1>
+##<a id="ver"></a> v5.0.0 (BETA)
 
 **Release Date:** December 6, 2017
 
-<h2>New Features</h2>
+###New Features
 
 **Support for Redis' Cluster API**<br>
 The Redis Cluster API support in Redis Enterprise Pack provides a simple mechanism for Cluster enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. The result is that for all but the initial call to get the cluster topology or reacquire the location of the master shard, the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
@@ -70,13 +70,13 @@ Support for additional Redis commands and features:
  	<li>In the node bootstrap API, the structure of the JSON has changed for adding an external IP during the bootstrap process.</li>
 </ul>
 
-<h1>##<a id="ver"></a> v0.0.84</h1>
+##<a id="ver"></a> v0.0.84
 
 **Release Date:** December 1, 2017
 
 Beta version of this tile with Support for Redis version 4.0.2.
 
-<h1>##<a id="ver"></a> v0.0.81</h1>
+##<a id="ver"></a> v0.0.81
 
 **Release Date:** June 15, 2017
 
