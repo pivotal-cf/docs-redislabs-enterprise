@@ -11,10 +11,18 @@ These are release notes for Redis Enterprise for PCF.
 
 ###New Features
 
-- Built and tested new tile with PCF 1.12.12 (ERT and Ops Manager)
-- Updated Redislabs enterprise cluster version to 5.0.1-17
-- Upgrade support in Redis Enterprise tile
-- Syslog integration
+- PCSF 2.0.x Support
+- Added Smoke-test errand
+- Tile based on Redis-Enterprise 5.0.1-18
+- Stemcell 3541.5 support
+
+###Improvements
+- Using new Tile generator v11
+- Using final bosh releases in Tile
+
+###Fixed
+- Offline install capability
+- Issue related to default Syslog integration option
 
 ##<a id="ver"></a> 5.0.1180018 (BETA)
 
@@ -60,7 +68,7 @@ There are three modules Redis Labs has developed and certified with Redis Enterp
 <ul>
  	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns Redis Enterprise into a supercharged distributed in-memory full-text indexing and search beast.</li>
  	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience of JSON as a built-in data type and can address nested data via a path easily.</li>
- 	<li><a href="https://redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/">ReBloom</a> - Enables Redis Enterprise to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that quickly determine if something is contained within a set.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/">ReBloom</a> - Enables Redis Enterprise to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that quickly determine if something is contained within a set.</li>
 </ul>
 **Custom Modules**
 In addition, Redis Enterprise provides the ability to load and use custom modules from <a href="http://redismodules.com/">redismodules.com</a> or of your own creation.
