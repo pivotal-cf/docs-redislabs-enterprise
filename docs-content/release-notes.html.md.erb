@@ -1,9 +1,28 @@
 ---
-title: Redis Enterprise Pack for PCF Release Notes
+title: Redis Enterprise for PCF Release Notes
 owner: Partners
 ---
 
-These are release notes for Redis Enterprise Pack for PCF.
+These are release notes for Redis Enterprise for PCF.
+
+##<a id="ver"></a> 5.0.13000030 (BETA)
+
+**Release Date:** March 5, 2018
+
+###New Features
+
+- PCF 2.0.x Support
+- Added Smoke-test errand
+- Tile based on Redis-Enterprise 5.0.1-30
+- Stemcell 3541.5 support
+
+###Improvements
+- Using new Tile generator v11
+- Using final BOSH releases in Tile
+
+###Fixed
+- Offline install capability
+- Issue related to default Syslog integration option
 
 ##<a id="ver"></a> 5.0.1180018 (BETA)
 
@@ -38,24 +57,24 @@ For information, see <a href="https://www.redislabs.com/redis-enterprise-documen
 ###New Features
 
 **Support for Redis Cluster API**<br>
-The Redis Cluster API support in Redis Enterprise Pack provides a simple mechanism for Cluster-enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. As a result, all but the initial call to get the cluster topology or reacquire the location of the master shard, and the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
+The Redis Cluster API support in Redis Enterprise provides a simple mechanism for Cluster-enabled Redis clients to learn and know the cluster topology. This enables clients to connect directly to an RP proxy on the node hosting the master shard for the data being operated on. As a result, all but the initial call to get the cluster topology or reacquire the location of the master shard, and the client will connect to the RP endpoint proxy where the master shard is located. <a href="https://www.redislabs.com/redis-enterprise-documentation/concepts-architecture/data-access/cluster-api/">Learn more about the Cluster API implementation</a>.
 
 **Redis Modules**<br>
-Redis Modules enable you to extend the functionality of Redis Enterprise Pack. You can add new data types, capabilities, and more to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise Pack is known for.
+Redis Modules enable you to extend the functionality of Redis Enterprise Pack. You can add new data types, capabilities, and more to tailor the cluster to a specific use case or need. Once installed, modules benefit from the high performance, scalability, and high availability that Redis Enterprise is known for.
 
 **Redis Labs' Modules**
 
 There are three modules Redis Labs has developed and certified with Redis Enterprise Pack. The modules are:
 <ul>
- 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns Redis Enterprise Pack into a supercharged distributed in-memory full-text indexing and search beast.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/">RediSearch</a> - This module turns Redis Enterprise into a supercharged distributed in-memory full-text indexing and search beast.</li>
  	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/">ReJSON</a> - Now you have the convenience of JSON as a built-in data type and can address nested data via a path easily.</li>
- 	<li><a href="https://redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/">ReBloom</a> - Enables Redis Enterprise Pack to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that quickly determine if something is contained within a set.</li>
+ 	<li><a href="https://www.redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/">ReBloom</a> - Enables Redis Enterprise to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that quickly determine if something is contained within a set.</li>
 </ul>
 **Custom Modules**
-In addition, Redis Enterprise Pack provides the ability to load and use custom modules from <a href="http://redismodules.com/">redismodules.com</a> or of your own creation.
+In addition, Redis Enterprise provides the ability to load and use custom modules from <a href="http://redismodules.com/">redismodules.com</a> or of your own creation.
 
 **LDAP Integration**
-As part of our continued emphasis on security, administrative user accounts in Redis Enterprise Pack can now either use built-in authentication or authenticate externally via LDAP with saslauthd. The accounts can be used for administering resources on the cluster via command line, Rest API, or Web UI.
+As part of our continued emphasis on security, administrative user accounts in Redis Enterprise can now either use built-in authentication or authenticate externally via LDAP with saslauthd. The accounts can be used for administering resources on the cluster via command line, Rest API, or Web UI.
 
 For more information see <a href="https://www.redislabs.com/redis-enterprise-documentation/administering/security/ldap-integration/">LDAP Integration</a>.
 
