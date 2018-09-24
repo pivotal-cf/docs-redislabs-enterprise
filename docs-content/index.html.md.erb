@@ -22,11 +22,10 @@ Redis Enterprise clusters are enterprise-grade, highly available, and scalable R
 
 Redis Enterprise extends open source Redis and delivers tangible benefits of stable high performance, zero-downtime linear scaling, and hassle-free, true high availability, with significant operational savings.
 
-This documentation describes Redis Enterprise for Pivotal Cloud Foundry (PCF).
-Redis Enterprise for PCF exposes its service plans on the Marketplace.
-Developers can provision highly available and scalable Redis databases by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
+This documentation describes Redis Enterprise for Pivotal Cloud Foundry (PCF). Redis Enterprise for PCF exposes its service plans on the Marketplace. Developers can provision highly available and scalable Redis databases by creating instances of the service plans using Apps Manager or the Cloud Foundry Command Line Interface (cf CLI).
 
-## <a id='overview'></a>Overview
+
+## <a id='overview'></a> Overview
 
 Redis Enterprise is an enterprise-grade cluster that acts as a container for managing and running multiple Redis databases in a highly available and scalable manner.
 
@@ -34,7 +33,8 @@ By default, a three-node Redis Enterprise cluster is deployed for you.
 
 For specific information about Redis Enterprise, and to get started, see the [Redis Enterprise documentation](https://redislabs.com/redis-enterprise-documentation/overview/).
 
-## <a id="snapshot"></a>Product Snapshot
+
+## <a id="snapshot"></a> Product Snapshot
 
 <p class='note'><strong>Note:</strong> As of PCF v2.0, Elastic Runtime is renamed Pivotal Application Service (PAS).</p>
 
@@ -68,24 +68,26 @@ The following table provides version and version-support information about Redis
         <td>AWS, Azure, GCP, and vSphere</td>
     </tr>
 </table>
-\* As of PCF v2.0, <em>Elastic Runtime</em> is renamed <em>Pivotal Application Service (PAS)</em>. 
+
+<p class='note'><strong>Note:</strong> The versioning for this tile has changed from v0.0.84 to v5.X.X to match the official Redis Enterprise pattern.</p>
 
 
-<p class="note info">Note: The versioning for this tile has changed from v0.0.84 to v5.X.X to match the official Redis Enterprise pattern.</p>
-
-## <a id="reqs"></a>Requirements
+## <a id="reqs"></a> Requirements
 
 Redis Enterprise for Pivotal Cloud Foundry requires a valid license from Redis Labs for the Redis Enterprise cluster.
 Otherwise, you receive a thirty-day trial license by default.
 
-## <a id="limitations"></a>Limitations
+
+## <a id="limitations"></a> Limitations
 
 At this time, Redis Enterprise for Pivotal Cloud Foundry is limited to one cluster per deployment.
 
-## <a id="feedback"></a>Feedback
+
+## <a id="feedback"></a> Feedback
 
 Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to support@redislabs.com.
 
-## <a id='license'></a>License
 
-Customers interested in using Redis Enterprise for PCF can download the tile and install it with the trial license limitations. To obtain a production license and 24/7 support, please contact a [Redis Labs sales representative](mailto:sales@redislabs.com).
+## <a id='license'></a> License
+
+Customers interested in using Redis Enterprise for PCF can download the tile and install it with the trial license limitations. To obtain a production license and 24/7 support, contact a [Redis Labs sales representative](mailto:sales@redislabs.com).
