@@ -11,9 +11,7 @@ You must use the BOSH Backup and Restore (BBR) command-line tool to backup and r
 
 To install the BBR command-line tool:
 
-1. Find the latest version of the BBR tool at:
-
-    https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases
+1. Find the latest version of the BBR tool at the [Bosh Backup and Restore GitHub Repo](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases).
 
 1. Right-click on the latest tar archive of the tool and copy the link address.
 1. To download the BBR tool, in the Ops Manager run:
@@ -22,7 +20,7 @@ To install the BBR command-line tool:
     wget <archive_link_address> -O bbr.tar && tar -xvf bbr.tar
     ```
 
-The bbr tool is extracted to `/releases/bbr`.
+The BBR tool is extracted to `/releases/bbr`.
 
 ## <a id='backup'></a> Backup Redis Enterprise for PCF
 
@@ -64,10 +62,10 @@ To restore a Redis Enterprise for PCF deployment:
 
 1. On the new PCF Foundation, install a redis-enterprise tile with the same configuration of the original tile.
    
-    Caution: A different cluster name or number of machines than the original tile causes errors in the restore.
+    <p class="note"><strong>Note:</strong> A different cluster name or number of machines than the original tile causes errors in the restore.</p>
 
 1. In the cluster configuration tab, check the **Recovery Mode** checkbox and click **Apply change**.
-1. Copy the backup archive to the Ops Manager.
+1. Copy the backup archive to Ops Manager.
 1. Run the restore command to recover the cluster:
 
     <p class="note"><strong>Note:</strong> This command does not recover databases.</p>
@@ -106,4 +104,4 @@ To restore a Redis Enterprise for PCF deployment:
     rladmin recover all
     ```
 
-1. In the Ops Manager, uncheck the **Recovery Mode** checkbox and click **Apply changes**.
+1. In Ops Manager, uncheck the **Recovery Mode** checkbox and click **Apply changes**.
