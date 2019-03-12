@@ -36,8 +36,6 @@ For specific information about Redis Enterprise, and to get started, see the [Re
 
 ## <a id="snapshot"></a> Product Snapshot
 
-<p class='note'><strong>Note:</strong> As of PCF v2.0, Elastic Runtime is renamed Pivotal Application Service (PAS).</p>
-
 The following table provides version and version-support information about Redis Enterprise for PCF.
 
 <table class="nice">
@@ -64,12 +62,23 @@ The following table provides version and version-support information about Redis
         <td>v2.2.x, v2.3.x, and v2.4.x</td>
     </tr>
     <tr>
+        <td>BOSH stemcell version</td>
+        <td>Ubuntu Xenial</td>
+    </tr>
+    <tr>
         <td>IaaS support</td>
         <td>AWS, Azure, GCP, and vSphere</td>
     </tr>
 </table>
 
+
 <p class='note'><strong>Note:</strong> The versioning for this tile has changed from v5.X.X to v5.X.X-xx to include Redis Enterprise Software (RS) full version and build number.</p>
+
+<p class="note warning"><strong> WARNING:</strong>
+Redis Enterprise for PCF v5.2.21800135
+and earlier require a Ubuntu Trusty stemcell.
+The end-of-life date for Ubuntu Trusty is April 2019.
+If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
 
 
 ## <a id="reqs"></a> Requirements
