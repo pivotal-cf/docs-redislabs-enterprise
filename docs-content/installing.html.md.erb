@@ -1,49 +1,67 @@
+
 ---
+
 title: Installing and Configuring Redis Enterprise for PCF
+
 owner: Partners
+
 ---
 
 This topic describes how to install and configure Redis Enterprise for Pivotal Cloud Foundry (PCF).
 
+## <a id='install-step1'></a> Add Redis Enterprise for PCF to PCF Ops Manager
 
-## <a id='install'></a> Install Redis Enterprise for PCF
+1. Sign in to PivNet and download the product file from [Pivotal Network](https://network.pivotal.io/products/redis-enterprise-pack) to your local machine.
 
-1. Download the product file from [Pivotal Network](https://network.pivotal.io/products/redis-enterprise-pack).
+2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
+![Import button](./images/pcf_import-product_tile.png)
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
-
-1. Under the **Import a Product** button, click **+** next to the version number of Redis Enterprise for PCF. This adds the tile to your staging area.
-
-1. Click **Save**.
-
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Redis Enterprise for PCF tile.
+3. Under the **Import a Product** button, click **+** next to the version number of Redis Enterprise for PCF. This adds the tile to your staging area.
+![Import button](./images/pcf_add-to-dash_tile.png)
 
 
 ## <a id='install-step2'></a> Configure and Deploy Redis Enterprise for PCF
 
-1. Click the newly imported tile.<br /> ![Imported tile](./images/pcf_pre-install_tile.png)
+1. Click the newly imported tile.<br /> ![Import button](./images/pcf_pre-install_tile.png)
 
-1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have a network selected for the cluster to use.
+1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have regions selected in each section adn a network selected for the cluster to use and click **Save**. A banner appears at the top of the page indicating changes have successfully been applied.
 
-1. Navigate to the **Redis Enterprise** section on the right navigation bar. Enter the following details:
+![Import button](./images/pcf_config-success_tile.png)
 
-1. From the **Settings** tab, click **Redis Enterprise** and complete the following fields:   
-  * **Cluster Name**: Provide a subdomain for the cluster name. The Redis Enterprise cluster name is a subdomain under the system domain, which is found under the Pivotal Elastic Runtime in Ops Manager. For example, set the cluster name as `CLUSTERNAME.redislabs.com` if your system domain is `redislabs.com`. The cluster name specified represents part of the connection string for Redis apps when connecting to Redis Enterprise databases using DNS-based connections.
-  * **Admin Email**: Provide an email that has full administrative privileges to the new Redis Enterprise cluster.
-  * **Admin account password**: Provide the password for the administrative account.
-  For production clusters, you can also provide a set of static IPs addresses to use for cluster nodes and enabled Multiple Availability Zone (Rack) awareness.
-    ![Import button](./images/pcf_rp_config_full_screen2.png)
+3. Navigate to the **Cluster Configuration** section on the left navigation bar. Enter the following details:
 
-1. Navigate to the **Resource Config** section on the right navigation bar. Ensure there are resources assigned to the required resources for Redis Enterprise.<br />![Import button](./images/pcf_resource_config.png)<br /><br />
-    <p class="note"><strong>Note:</strong> Ensure the capacity used for Redis Enterprise cluster nodes meet the minimum hardware specification requirements for Redis Enterprise. For more information, see <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/"> the minimum hardware specifications</a> in the Redis Enterprise documentation.</p>
+* **Cluster Name**: Provide a subdomain for the cluster name. The Redis Enterprise cluster name is a subdomain under the system domain, which is found under the Pivotal Application Service (PAS) in Ops Manager (PAS->Settings->Domains).
+For example, set the cluster name as `CLUSTERNAME.sys.redislabs.com` if your system domain is `sys.redislabs.com`. The cluster name specified, represents part of the connection string for Redis apps when connecting to Redis Enterprise databases using DNS-based connections.
+
+* **Admin Email**: Provide an email for the account that will have full administrative privileges to the new Redis Enterprise cluster.
+
+* **Admin account password**: Provide the password for the administrative account.
+
+* Optionally, for production clusters, you can also provide a static IP address of a set of static IP addresses (comma seperated) to use for cluster nodes. You can also enabled Multiple Availability Zone (Rack) awareness.
+ 
+* Save your changes by clicking **Save**.
+
+![Import button](./images/pcf_rp_config_full_screen2.png)
+
+4. Navigate to the **Routing Configuration** section on the left navigation bar. If you would like to enable TCP Routing, configure the fields in this section. Otherwise, select **Disable**. Save your changes by clicking **Save**.
+
+5. Navigate to the **Service Plans** section on the left navigation bar. You can optionally add, remove or edit plans or choose to keep pre-configured plans. Save your changes by clicking **Save**.
+
+6. Optionally, Navigate to the **Loggregator** section on the left navigation bar. You can check the box to *enable exposing cluster metric* if you would like to enable Loggregator functionality. You can also set the *Metrics scrape interval* in seconds. The default is 15 second. Save your changes by clicking **Save**.
+![Import button](./images/pcf_rc_loggregator.png)
+ 
+8. Navigate to the **Resource Config** section on the left navigation bar. Ensure there are resources assigned to the required resources for Redis Enterprise.
+If you chose to enable metric export to **Loggregator**  in the previous step, you must ensure that at least 1 *loggregator-agent* instance is configured.<br />![Import button](./images/pcf_resource_config.png)<br /><br />
+
+<p class="note"><strong>Note:</strong> Ensure the capacity used for Redis Enterprise cluster nodes meet the minimum hardware specification requirements for Redis Enterprise. For more information, see <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/"> the minimum hardware specifications</a> in the Redis Enterprise documentation.</p>
 
 1. Click **Save**.
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to deploy Redis Enterprise for PCF tile.
-    ![Import button](./images/post-install-dashboard.png)
 
-1. (Optional) Double-click the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-pack-node** and **redis-pack-service-broker**.
+![Import button](./images/post-install-dashboard.png)
 
+1. Optionally, double-click the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-pack-node** and **redis-pack-service-broker**.
 
 ## <a id='install-step4'></a> Create a New Database on the Redis Enterprise Cluster
 
@@ -52,17 +70,18 @@ This topic describes how to install and configure Redis Enterprise for Pivotal C
 1. Log in using the Administrator email account and password you specified in the tile configuration above.
 
 1. Navigate to the **databases** tab and create a new database by selecting **redis db**.
-    ![Import button](./images/pcf-new-redis-db.png)
+
+![Import button](./images/pcf-new-redis-db.png)
 
 1. On the **new redis db** page, in the **Name** field, enter `database1` and then click the **Show advanced options** link.
 
 1. In the **Endpoint port number** field, enter `12000`.
-    ![Import button](./images/pcf-new-redis-db2.png)
+
+![Import button](./images/pcf-new-redis-db2.png)
 
 1. Click **Activate** to create your database.
 
 You now have a Redis database on Redis Enterprise for PCF.
-
 
 ## <a id='install-step5'></a> Connect to Redis Database Using redis-cli
 
@@ -73,27 +92,39 @@ To connect to Redis Database, do the following:
 1. Connect to one of the IP addresses of the nodes through SSH and find `redis-cli` under `/opt/redislabs/bin/redis-cli`.
 
 1. Change to the `/opt/redislabs/bin` directory and run `redis-cli` to connect to port 12000
-   and to the database-endpoint that is reported in the database properties after you created the database.
 
-    ```
-    # sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
-    ```
+and to the database-endpoint that is reported in the database properties after you created the database.
+
+```
+
+# sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
+
+```
 
 1. To store and retrieve a key in `database1`, run the following commands:
 
-    ```
-    set key1 123
-    get key1
-    ```
+```
 
-    For example:
+set key1 123
 
-    <pre class="terminal">
-    127.0.0.1:16653> set key1 123
-    OK
-    127.0.0.1:16653> get key1
-    "123"
-    </pre>
+get key1
 
-    For information about Redis Enterprise,
-    see the [Redis Enterprise documentation](https://redislabs.com/redis-enterprise-documentation/overview/).
+```
+
+For example:
+
+<pre class="terminal">
+
+127.0.0.1:16653> set key1 123
+
+OK
+
+127.0.0.1:16653> get key1
+
+"123"
+
+</pre>
+
+For information about Redis Enterprise,
+
+see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
