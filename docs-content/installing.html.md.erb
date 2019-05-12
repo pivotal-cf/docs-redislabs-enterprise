@@ -63,25 +63,13 @@ If you chose to enable metric export to **Loggregator**  in the previous step, y
 
 1. Optionally, double-click the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-pack-node** and **redis-pack-service-broker**.
 
-## <a id='install-step4'></a> Create a New Database on the Redis Enterprise Cluster
+## <a id='install-step4'></a> Access the Redis Enterprise Cluster UI
 
-1. Connect to the Redis Enterprise Admin Console by putting the **Cluster Name** you previously specified in the URL: `https://rpadmin.CLUSTER-NAME`
+1. Connect to the Redis Enterprise Admin Console by placing the **Cluster Management Console Subdomain** in the host part of the following URL: `https://[Cluster Management Console Subdomain].[System Domain]`. For example: `https://https://console-redis.sys.my-domain.cf-app.com'
 
 1. Log in using the Administrator email account and password you specified in the tile configuration above.
 
-1. Navigate to the **databases** tab and create a new database by selecting **redis db**.
 
-![Import button](./images/pcf-new-redis-db.png)
-
-1. On the **new redis db** page, in the **Name** field, enter `database1` and then click the **Show advanced options** link.
-
-1. In the **Endpoint port number** field, enter `12000`.
-
-![Import button](./images/pcf-new-redis-db2.png)
-
-1. Click **Activate** to create your database.
-
-You now have a Redis database on Redis Enterprise for PCF.
 
 ## <a id='install-step5'></a> Connect to Redis Database Using redis-cli
 
