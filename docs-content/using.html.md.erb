@@ -9,10 +9,10 @@ This topic describes how to use Redis Enterprise for PCF.
 
 1. Perform 'cf login' to your foundation.
 
-1. Run the ``cf create-service redislabs [SERVICE PLAN] [SERVICE INSTANCE]`` where SERVICE PLAN uses one of the available Redis Enterprise service plans and SERVICE INSTANCE is the new service instance name.
-<br>For example: `cf create-service redislabs small-redis redis2`
-<br> ``Creating service instance redis2 in org RedisLabs / space space1 as admin...
-OK``
+1. Run the ``# cf create-service redislabs [SERVICE PLAN] [SERVICE INSTANCE]`` where SERVICE PLAN uses one of the available Redis Enterprise service plans and SERVICE INSTANCE is the new service instance name.
+<br>For example:<br> `# cf create-service redislabs small-redis redis2`
+<br><br> ```Creating service instance redis2 in org RedisLabs  space space1 as admin...
+OK```
 <p>Availabe service plans are listed in either the tile's Ops Manager configuration, under Settings->Service Plans or in the Apps  Manager -> Marketplace screen</p>
 
 ![Import button](./images/pcf_ops_service_plan.png)
@@ -25,11 +25,11 @@ OK``
 
 ![Import button](./images/pcf_apps_marketplace.png)
 
-1. Select a plan from the available plans listed and click "Select This Plan".
+2. Select a plan from the available plans listed and click "Select This Plan".
 
  ![Import button](./images/pcf_apps_service_plan.png)
 
-1. Write an instance name and optionally choose to bind to a deployed app then click "Create".
+3. Write an instance name and optionally choose to bind to a deployed app then click "Create".
 
  ![Import button](./images/pcf_apps_config_create.png)
 
@@ -55,7 +55,7 @@ Do not create or delete databases through the Redis Enterprise Cluster UI. Use t
 
 ![Import button](./images/pcf_add_license.png)
 
-1. Paste the license key you received from Redis Labs into the "**Cluster key**" form field and click the "**Save**" button.
+4. Paste the license key you received from Redis Labs into the "**Cluster key**" form field and click the "**Save**" button.
 
 ## <a id='using-topic-5'></a> Connect to Redis Database Using redis-cli
 
@@ -73,7 +73,7 @@ To connect to Redis Database, do the following:
 
 ```
 
-1. To store and retrieve a key in `database1`, run the following commands:
+3. To store and retrieve a key in `database1`, run the following commands:
 
 ```
 
