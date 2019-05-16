@@ -63,56 +63,6 @@ If you chose to enable metric export to **Loggregator**  in the previous step, y
 
 1. Optionally, double-click the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-pack-node** and **redis-pack-service-broker**.
 
-## <a id='install-step4'></a> Access the Redis Enterprise Cluster UI
-
-1. Connect to the Redis Enterprise Admin Console by placing the **Cluster Management Console Subdomain** in the host part of the following URL: `https://[Cluster Management Console Subdomain].[System Domain]`. For example: `https://https://console-redis.sys.my-domain.cf-app.com'
-
-1. Log in using the Administrator email account and password you specified in the tile configuration above.
 
 
-
-## <a id='install-step5'></a> Connect to Redis Database Using redis-cli
-
-`redis-cli` is a simple command-line tool for interacting with Redis Database.
-
-To connect to Redis Database, do the following:
-
-1. Connect to one of the IP addresses of the nodes through SSH and find `redis-cli` under `/opt/redislabs/bin/redis-cli`.
-
-1. Change to the `/opt/redislabs/bin` directory and run `redis-cli` to connect to port 12000
-
-and to the database-endpoint that is reported in the database properties after you created the database.
-
-```
-
-# sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
-
-```
-
-1. To store and retrieve a key in `database1`, run the following commands:
-
-```
-
-set key1 123
-
-get key1
-
-```
-
-For example:
-
-<pre class="terminal">
-
-127.0.0.1:16653> set key1 123
-
-OK
-
-127.0.0.1:16653> get key1
-
-"123"
-
-</pre>
-
-For information about Redis Enterprise,
-
-see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
+For more information about Redis Enterprise, see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
