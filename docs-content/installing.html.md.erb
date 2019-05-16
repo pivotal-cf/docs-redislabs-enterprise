@@ -63,68 +63,6 @@ If you chose to enable metric export to **Loggregator**  in the previous step, y
 
 1. Optionally, double-click the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-pack-node** and **redis-pack-service-broker**.
 
-## <a id='install-step4'></a> Create a New Database on the Redis Enterprise Cluster
 
-1. Connect to the Redis Enterprise Admin Console by putting the **Cluster Name** you previously specified in the URL: `https://rpadmin.CLUSTER-NAME`
 
-1. Log in using the Administrator email account and password you specified in the tile configuration above.
-
-1. Navigate to the **databases** tab and create a new database by selecting **redis db**.
-
-![Import button](./images/pcf-new-redis-db.png)
-
-1. On the **new redis db** page, in the **Name** field, enter `database1` and then click the **Show advanced options** link.
-
-1. In the **Endpoint port number** field, enter `12000`.
-
-![Import button](./images/pcf-new-redis-db2.png)
-
-1. Click **Activate** to create your database.
-
-You now have a Redis database on Redis Enterprise for PCF.
-
-## <a id='install-step5'></a> Connect to Redis Database Using redis-cli
-
-`redis-cli` is a simple command-line tool for interacting with Redis Database.
-
-To connect to Redis Database, do the following:
-
-1. Connect to one of the IP addresses of the nodes through SSH and find `redis-cli` under `/opt/redislabs/bin/redis-cli`.
-
-1. Change to the `/opt/redislabs/bin` directory and run `redis-cli` to connect to port 12000
-
-and to the database-endpoint that is reported in the database properties after you created the database.
-
-```
-
-# sudo /opt/redislabs/bin/redis-cli -p 12000 -h database-endpoint
-
-```
-
-1. To store and retrieve a key in `database1`, run the following commands:
-
-```
-
-set key1 123
-
-get key1
-
-```
-
-For example:
-
-<pre class="terminal">
-
-127.0.0.1:16653> set key1 123
-
-OK
-
-127.0.0.1:16653> get key1
-
-"123"
-
-</pre>
-
-For information about Redis Enterprise,
-
-see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
+For more information about Redis Enterprise, see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
