@@ -5,20 +5,52 @@ owner: Partners
 
 These are release notes for Redis Enterprise for PCF.
 
+## <a id="ver"></a> v5.4.40700169
+
+**Release Date:** Jul 15, 2019
+
+This release supercedes v5.4.22700167 to include new features and bug fixes.
+
+### New Features
+- Support for Redis Enterpirse Cluster 5.4.4-7
+- Support for PCF 2.6
+- Support for BOSH DNS
+- Changing PCF tile Resource Config defaults to include minimum persistent storage requirements
+
+### Known Limitations
+- Smoke Test Errand fails, applying changes in Ops Manager after deploying tile in Recovery mode.
+  - Workaround: Disable the Smoke Test Errand before applying changes to the tile in Recovery Mode. After the last recovery step (unchecking the Recovery checkbox), apply changes with Smoke Test Errand, which will now run.
+
+
+## <a id="ver"></a> v5.4.22700167
+
+**Release Date:** Jun 27, 2019
+
+This release supercedes v5.4.22000164 to include new features and bug fixes.
+
+### New Features
+- Support for Redis Enterpirse Cluster 5.4.2-24
+- Support for PCF 2.5
+
+### Fixed
+- Redis tile drain script does not complete during BOSH deploy
+- TCP Router port limits are applied when TCP Router is disabled
+
+
 ## <a id="ver"></a> v5.4.22000164
 
 **Release Date:** May 16, 2019
 
-This release supercedes v5.4.22000164 to include new features and bug fixes.
+This release supercedes v5.4.22000155 to include new features and bug fixes.
 
 ### New Features
 - Tile is based on Redis Enterprise release v5.4.2-20. [5.4.2 Release Notes](https://docs.redislabs.com/latest/rs/release-notes/rs-5-4-2-april-2019/).
 - Security enhancement - The DB Viewer and Cluster Viewer roles cannot view the Redis password of a database
 - Update Xenial stemcells to release 250
-- Updated Redis Labs logo 
+- Updated Redis Labs logo
 
 ### Fixed
-- Loggregator prevents nginx from starting after node restart 
+- Loggregator prevents nginx from starting after node restart
 
 
 ## <a id="ver"></a> 5.4.2600155
@@ -157,7 +189,7 @@ Redis Modules enable you to extend the functionality of Redis Enterprise Pack. Y
 **Redis Labs' Modules**
 
 There are three modules Redis Labs has developed and certified with Redis Enterprise Pack. The modules are:
- 	
+
 * [RediSearch](https://www.redislabs.com/redis-enterprise-documentation/developing/modules/redisearch/) - This module turns Redis Enterprise into a supercharged, distributed, in-memory, full-text indexing and search beast.
 * [ReJSON](https://www.redislabs.com/redis-enterprise-documentation/developing/modules/rejson/) - Now you have the convenience of JSON as a built-in data type and can address nested data via a path easily.
 * [ReBloom](https://www.redislabs.com/redis-enterprise-documentation/developing/modules/bloom-filters/) - Enables Redis Enterprise to have a scalable bloom filter as a data type. Bloom filters are probabilistic data structures that quickly determine if something is contained within a set.
