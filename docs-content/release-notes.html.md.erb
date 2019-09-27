@@ -1,9 +1,9 @@
 ---
-title: Redis Enterprise for PCF Release Notes
+title: Redis Enterprise for Pivotal Platform Release Notes
 owner: Partners
 ---
 
-These are release notes for Redis Enterprise for PCF.
+These are release notes for Redis Enterprise for Pivotal Platform.
 
 ## <a id="ver"></a> v5.4.40700169
 
@@ -13,9 +13,9 @@ This release supercedes v5.4.22700167 to include new features and bug fixes.
 
 ### New Features
 - Support for Redis Enterpirse Cluster 5.4.4-7
-- Support for PCF 2.6
+- Support for Pivotal Platform 2.6
 - Support for BOSH DNS
-- Changing PCF tile Resource Config defaults to include minimum persistent storage requirements
+- Changing Pivotal Platform tile Resource Config defaults to include minimum persistent storage requirements
 
 ### Known Limitations
 - Smoke Test Errand fails, applying changes in Ops Manager after deploying tile in Recovery mode.
@@ -30,7 +30,7 @@ This release supercedes v5.4.22000164 to include new features and bug fixes.
 
 ### New Features
 - Support for Redis Enterpirse Cluster 5.4.2-24
-- Support for PCF 2.5
+- Support for Pivotal Platform 2.5
 
 ### Fixed
 - Redis tile drain script does not complete during BOSH deploy
@@ -82,7 +82,7 @@ This release supercedes 5.4.2400142 to include bug fixes.
 **Release Date:** January 30, 2019
 
 ### New Features
-- Added PCF v2.4 Support
+- Added Pivotal Platform v2.4 Support
 - Updated stemcell to Ubuntu Xenial
 - TLS client authentication is now optional when enabling TLS for database communications
 - Tile based on Redis-Enterprise v5.4.0
@@ -94,8 +94,8 @@ This release supercedes 5.4.2400142 to include bug fixes.
 **Release Date:** August 31, 2018
 
 ### New Features
-- Added PCF v2.3 Support, as of November 2, 2018
-- PCF v2.2 Support
+- Added Pivotal Platform v2.3 Support, as of November 2, 2018
+- Pivotal Platform v2.2 Support
 - Tile based on Redis-Enterprise v5.2.2
 - For more information, see [Redis Enterprise Release Notes](https://redislabs.com/redis-enterprise-documentation/release-notes/).
 
@@ -109,7 +109,7 @@ This release supercedes 5.4.2400142 to include bug fixes.
 **Release Date:** June 21, 2018
 
 ### New Features
-- PCF v2.1 Support
+- Pivotal Platform v2.1 Support
 - Backup to FTP / S3
 - Tile based on Redis-Enterprise v5.2
 - For more information, see [Redis Enterprise Release Notes](https://redislabs.com/redis-enterprise-documentation/release-notes/).
@@ -132,7 +132,7 @@ This release supercedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-- PCF v2.0.x Support
+- Pivotal Platform v2.0.x Support
 - Added smoke-test errand
 - Tile based on Redis-Enterprise v5.0.1-30
 - Stemcell 3541.5 support
@@ -152,7 +152,7 @@ This release supercedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-- Built and tested new tile with PCF v1.12.12 (ERT and Ops Manager)
+- Built and tested new tile with Pivotal Platform v1.12.12 (ERT and Ops Manager)
 - Updated Redislabs enterprise cluster version to v5.0.1-17
 - Upgrade support in Redis Enterprise tile
 - Syslog integration
@@ -164,14 +164,14 @@ This release supercedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple PCF Foundations**
+**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple Pivotal Platform Foundations**
 Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent. This also includes support for TCP Routers.
 
 For information, see [Developing with CRDBs](https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/").
 
-- PCF CRDB Integration using PCF TCP Router 16720, 16721
+- Pivotal Platform CRDB Integration using Pivotal Platform TCP Router 16720, 16721
 - CRDB Support without DNS (doc item #6) and 16711
-- Tile uses PCF system domain to deploy tile 16045
+- Tile uses Pivotal Platform system domain to deploy tile 16045
 
 
 ## <a id="ver"></a> v5.0.0 (BETA)
