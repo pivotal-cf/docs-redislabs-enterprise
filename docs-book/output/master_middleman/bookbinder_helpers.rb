@@ -103,6 +103,22 @@ module Bookbinder
         OpenStruct.new config[:template_variables]
       end
 
+      def product_name
+        return vars.product_name
+      end
+
+      def product_name_long
+        return vars.product_name_long
+      end
+
+      def product_version
+        return vars.product_version
+      end
+
+      def set_title(*args)
+        current_page.data.title= args.join(' ')
+      end
+
       def product_info
         config[:product_info].fetch(template_key, {})
       end
