@@ -1,0 +1,202 @@
+---
+title: Redis Enterprise Modules on Pivotal Platform
+owner: Partners
+---
+
+This topic describes how to use Redis Enterprise Modules on Pivotal Platform.
+
+## <a id='modules-topic-1'></a> Redis Enterprise Modules Overview
+
+Redis Enterprise Modules reduces the need to maintain a specialty database for each application use case by offering a separate, dedicated, and optimized engine for each data model.
+Trusted, tested, and verified to work with Redis Enterprise, these modules include:
+<br>**[RedisGraph](https://oss.redislabs.com/redisgraph/)**
+<br>**[RedisJSON](https://oss.redislabs.com/redisjson/)**
+<br>**[RedisTimeSeries](https://oss.redislabs.com/redistimeseries/)**
+<br>**[RedisBloom](https://oss.redislabs.com/redisbloom/)**
+<br>**[RediSearch](https://oss.redislabs.com/redisearch/)**
+
+For more information please refer to the [Redis Enterprise Modules page](https://redislabs.com/redis-enterprise/modules/) on the [Redis Labs](https://redislabs.com/) Website.
+
+## <a id='modules-topic-2'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager CLI
+
+1. Perform 'cf login' to your foundation.
+
+1. Run the command ``# cf create-service redislabs [SERVICE PLAN] [SERVICE INSTANCE] -c [PARAMETERS_AS_JSON]`` <br>where:
+<br>*redislabs* is the default service name (in a Redis Enterprise Tile Manager multi-tile environment, please run ``# cf marketplace`` to determine the service name)
+<br>SERVICE PLAN uses one of the available Redis Enterprise service plans
+<br>SERVICE INSTANCE is the new service instance name
+<br>PARAMETERS_AS_JSON are the modules list to be loaded
+
+1. Consult the list of available modules and their module ids for the Redis Enteprise version installed on your foundation.<br>
+This can be achieved by having an operator run ``curl -L -v -k GET https://localhost:9443/v1/modules -u "[CLUSTER ADMIN USERNAME]:[CLUSTER ADMIN PASSWORD]" -H "Content-Type: application/json"`` on one of the Redis Enteprise nodes.
+<br>See the [appendix](modules.html#appendix-module-list) below for the list of module ids and their default arguments for release 5.4.102200007 (released for Pivotal Platform 2.7)<br>
+<br>For example, to create a `small-redis` plan database with the RedisBloom module:<br> ```cf create-service redislabs small-redis RedisBloom -c '                                                                    {
+"module_list":[{"module_id":"0bea0987204293b26c877698e29dcdf3","module_args":""}]}'```
+<br>```Creating service instance RedisBloom in org RedisLabs / space RL Space 1 as admin...
+OK```
+<p>Availabe service plans are listed in response to ``cf services`` or listed in either the tile's Ops Manager configuration, under Settings->Service Plans or in the Apps  Manager -> Marketplace screen:</p>
+
+![Import button](./images/pcf_ops_service_plan.png)
+
+![Import button](./images/pcf_apps_service_plans.png)
+
+## <a id='modules-topic-3'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager UI
+
+
+1. From Pivotal Platform Apps Manager go to Marketplace and select Redis Enterprise on Pivotal Platform.<br />![Import button](./images/pcf_apps_marketplace.png)
+1. Select a plan from the available plans listed and click "Select This Plan"<br />![Import button](./images/pcf_apps_service_plan.png)
+1. Select the "Add Parameter" option and turn on the "Enter as JSON" option. Enter the module list information in the same way as with the CLI option.
+1. Write an instance name and optionally choose to bind to a deployed app then click "Create".<br />![Import button](./images/pcf_apps_config_create_bf.png)<br />![Import button](./images/pcf_ops_service_plan_created_bf.png)
+
+## <a id='appendix-module-list'></a> Appendix: Module list for 5.4.102200007 (released for Pivotal Platform 2.7)
+
+```json
+[
+  {
+    "is_bundled":true,
+    "display_name":"redisgraph",
+    "description":"A graph database on top of Redis which supports Open-Cypher query language.",
+    "license":"Redis Source Available License Agreement",
+    "author":"RedisLabs",
+    "min_redis_pack_version":"5.0",
+    "config_command":"",
+    "email":"roi@redislabs.com",
+    "version":10202,
+    "min_redis_version":"4.0",
+    "capabilities":[
+      "types",
+      "hash_policy",
+      "failover_migrate",
+      "persistence_rdb"
+    ],
+    "semantic_version":"1.2.2",
+    "module_name":"graph",
+    "sha256":"60dbf3524f3ba59df011b32d45e1db2fb68cd8a2b7e732fe996fcf2446a3be76",
+    "homepage":"http:\/\/redisgraph.io",
+    "command_line_args":"",
+    "uid":"6d31bf26a4c95bc1b335ea11a38c3b45"
+  },
+  {
+    "is_bundled":true,
+    "display_name":"RedisBloom",
+    "description":"Bloom Filter Module for Redis",
+    "license":"Redis Source Available License Agreement",
+    "author":"Redis Labs",
+    "min_redis_pack_version":"5.0",
+    "config_command":"",
+    "email":"redismodules@redislabs.com",
+    "version":20003,
+    "min_redis_version":"4.0",
+    "capabilities":[
+      "types",
+      "no_multi_key",
+      "replica_of",
+      "eviction_expiry",
+      "failover_migrate",
+      "backup_restore",
+      "reshard_rebalance",
+      "persistence_aof",
+      "persistence_rdb",
+      "hash_policy",
+      "clustering"
+    ],
+    "semantic_version":"2.0.3",
+    "module_name":"bf",
+    "sha256":"6db2c57996b420b8af21ef0c0d31d0ab5aae12bd9e90f2b304363a297c4eb873",
+    "homepage":"http:\/\/redisbloom.io",
+    "command_line_args":"",
+    "uid":"0bea0987204293b26c877698e29dcdf3"
+  },
+  {
+    "is_bundled":true,
+    "display_name":"redisearch-enterprise",
+    "description":"High performance search index on top of redis - enterprise version",
+    "license":"Commercial",
+    "author":"RedisLabs",
+    "min_redis_pack_version":"5.0",
+    "config_command":"_FT.CONFIG SET",
+    "email":"dvir@redislabs.com",
+    "version":10418,
+    "min_redis_version":"4.0",
+    "capabilities":[
+      "types",
+      "replica_of",
+      "failover_migrate",
+      "persistence_aof",
+      "persistence_rdb",
+      "clustering",
+      "backup_restore"
+    ],
+    "semantic_version":"1.4.18",
+    "module_name":"ft",
+    "sha256":"3e4a1c27914c1ab8532ecfe7b0b3eaee5929135450db896750afa0ec3bdd21f8",
+    "homepage":"http:\/\/redisearch.io",
+    "command_line_args":"PARTITIONS AUTO",
+    "uid":"e578a4fbde6a880c25212065b39a31d7"
+  },
+  {
+    "is_bundled":true,
+    "display_name":"RedisJSON",
+    "description":"Native JSON Data Type for Redis",
+    "license":"Redis Source Available License Agreement",
+    "author":"Redis Labs",
+    "min_redis_pack_version":"5.0",
+    "config_command":"",
+    "email":"redismodules@redislabs.com",
+    "version":10004,
+    "min_redis_version":"4.0",
+    "capabilities":[
+      "types",
+      "no_multi_key",
+      "replica_of",
+      "eviction_expiry",
+      "failover_migrate",
+      "flash",
+      "backup_restore",
+      "reshard_rebalance",
+      "persistence_aof",
+      "persistence_rdb",
+      "hash_policy",
+      "clustering"
+    ],
+    "semantic_version":"1.0.4",
+    "module_name":"ReJSON",
+    "sha256":"1fc77c09180fbd25bd1482ea9a6826009d9cd5e1dc0a999260ebe426fd06d19f",
+    "homepage":"http:\/\/redisjson.io",
+    "command_line_args":"",
+    "uid":"e4188a32d026c6b7595cdc750bf70b96"
+  },
+  {
+    "is_bundled":true,
+    "display_name":"RedisTimeSeries",
+    "description":"Time-Series data structure for redis",
+    "license":"Redis Source Available License Agreement",
+    "author":"RedisLabs",
+    "min_redis_pack_version":"5.4",
+    "config_command":"",
+    "email":"danni@redislabs.com",
+    "version":10003,
+    "min_redis_version":"5.0",
+    "capabilities":[
+      "types",
+      "replica_of",
+      "backup_restore",
+      "hash_policy",
+      "eviction_expiry",
+      "failover_migrate",
+      "persistence_aof",
+      "persistence_rdb",
+      "hash_policy",
+      "clustering",
+      "reshard_rebalance"
+    ],
+    "semantic_version":"1.0.3",
+    "module_name":"timeseries",
+    "sha256":"646b9a04157beacf70dab8cacbfa4e8631b49e3e931ae8e5b77c4812e29e3b87",
+    "homepage":"https:\/\/oss.redislabs.com\/redistimeseries\/",
+    "command_line_args":"",
+    "uid":"7e5dd8e89e24b9a66e05d13748f28325"
+  }
+```
+
+For more information about Redis Enterprise Modules for Pivotal Platform, see the [Redis Enterprise Module documentation](https://docs.redislabs.com/latest/modules/).
