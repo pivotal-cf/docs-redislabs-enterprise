@@ -39,12 +39,12 @@ This topic describes how to install and configure Redis Enterprise for Pivotal P
 
 1. Navigate to the **Resource Config** section on the left navigation bar. Ensure there are resources assigned to the required resources for Redis Enterprise.
 If you chose to enable metric export to **Loggregator**  in the previous step, you must ensure that exactly 1 *loggregator-agent* instance is configured.<br />![Import button](./images/pcf_resource_config.png)<br /><br />
-
+    
     <p class="note"><strong>Note:</strong> Redis Enterprise for Pivotal Platform enforces minimum hardware specification requirements for Redis Enterprise. For more information, see <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/"> the minimum hardware specifications</a> in the Redis Enterprise documentation.</p>
-
+    
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to deploy Redis Enterprise for Pivotal Platform tile.<br />![Import button](./images/post-install-dashboard.png)<br />![Import button](./images/pcf_apply_changes1.png)<br />![Import button](./images/pcf_apply_changes2.png)<br />![Import button](./images/pcf_apply_changes3.png)
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to deploy Redis Enterprise for Pivotal Platform tile.<br />![Import button](./images/post-install-dashboard.png)
 
 1. Optionally, select the tile, and then click the **Status** tab to view the state of the cluster nodes under the jobs named **redis-enterprise-node**, **redislabs-service-broker** and **redis-registrar**.
 
