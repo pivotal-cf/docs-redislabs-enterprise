@@ -5,6 +5,38 @@ owner: Partners
 
 These are release notes for Redis Enterprise for Pivotal Platform.
 
+## <a id="ver"></a> v5.4.102200007
+
+**Release Date:** Dec 14, 2019
+
+This release supercedes v5.4.40700169 to include new features and bug fixes.
+
+### New Features
+- Support for Redis Enterpirse Cluster 5.4.10-22
+  - [Redis Enterprise 5.4.10 release notes](https://docs.redislabs.com/latest/rs/release-notes/rs-5-4-10-december-2019/)
+- Support for Pivotal Platform 2.7
+- Support for creating Redis Enterprise Modules' enabled databases with Service Broker
+- Improve upgrade and scaledown resiliency
+  - Demote master node before enslave
+  - Implement retry mechanism to minimize enslave failures
+- Improve support for automation with `om`
+  - Plan names are unique
+  - Plans are configurable
+- Changed product references from "PCF" to "Pivotal Platform"
+- Add the ability for database metrics to report db name (configurable)
+- Improve handling of extremely large MSET commands
+
+### Fixes
+- Sentinel disappears after software upgrade
+- PCF install fails when password contains some special characters
+
+### Known Limitations
+- Cluster password **may not contain** the following characters:
+  - ":" (colon)
+  - " " (space)
+  - "'" (single quote)
+  - '"' (double quotes)
+
 ## <a id="ver"></a> v5.4.40700169
 
 **Release Date:** Jul 17, 2019
