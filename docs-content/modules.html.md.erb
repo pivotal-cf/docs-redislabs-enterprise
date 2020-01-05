@@ -27,14 +27,14 @@ For more information please refer to the [Redis Enterprise Modules page](https:/
 <br>SERVICE INSTANCE is the new service instance name
 <br>PARAMETERS_AS_JSON are the modules list to be loaded
 
-1. Consult the list of available modules and their module ids for the Redis Enteprise version installed on your foundation.<br>
+1. Consult the list of available modules and their module ids for the Redis Enterprise version installed on your foundation.<br>
 This can be achieved by having an operator run ``curl -L -v -k GET https://localhost:9443/v1/modules -u "[CLUSTER ADMIN USERNAME]:[CLUSTER ADMIN PASSWORD]" -H "Content-Type: application/json"`` on one of the Redis Enteprise nodes.
 <br>See the [appendix](modules.html#appendix-module-list) below for the list of module ids and their default arguments for release 5.4.102200007 (released for Pivotal Platform 2.7)<br>
 <br>For example, to create a `small-redis` plan database with the RedisBloom module:<br> ```cf create-service redislabs small-redis RedisBloom -c '                                                                    {
 "module_list":[{"module_id":"0bea0987204293b26c877698e29dcdf3","module_args":""}]}'```
 <br>```Creating service instance RedisBloom in org RedisLabs / space RL Space 1 as admin...
 OK```
-<p>Availabe service plans are listed in response to ``cf services`` or listed in either the tile's Ops Manager configuration, under Settings->Service Plans or in the Apps  Manager -> Marketplace screen:</p>
+<p>Available service plans are listed in response to ``cf services`` or listed in either the tile's Ops Manager configuration, under Settings->Service Plans or in the Apps  Manager -> Marketplace screen:</p>
 
 ![Import button](./images/pcf_ops_service_plan.png)
 
