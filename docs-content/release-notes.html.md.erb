@@ -5,18 +5,44 @@ owner: Partners
 
 These are release notes for Redis Enterprise for Pivotal Platform.
 
+
+## <a id="ver"></a> v5.4.102200010
+
+**Release Date:** Feb 25, 2020
+
+This release supersedes v5.4.102200007 to include new features and bug fixes.
+
+### New Features
+- Support for Pivotal Platform 2.8
+- Added the option to enable [service instance sharing](https://docs.pivotal.io/platform/application-service/2-8/services/enable-sharing.html) across spaces and organization
+- Added the ability to configure TLS within plans. Note that some of the pre-configured plans in a fresh tile install now have TLS configured as enabled by default
+- Added Shard Placement policy to plans configuration
+- Resource Config now enforces resource minimums (VM  and Persistent Disk type) based on develop/test <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/">minimum hardware requirements.</a> Note that automatic resource config provides minimum hardware requirements for production - which did not change.
+
+### Known Limitations
+- Enabling service instance sharing does not create unique credentials for each binding. Once shared, service instances cannot be unshared.
+- Cluster password **may not contain** the following characters:
+  - ":" (colon)
+  - " " (space)
+  - "'" (single quote)
+  - '"' (double quotes)
+
+### Fixes
+- Updated outdated logos
+- Provide input validation, upon saving, on Administrative Password fields, to avoid installation failures as a result of using invalid characters within passwords
+
 ## <a id="ver"></a> v5.4.102200007
 
 **Release Date:** Dec 14, 2019
 
-This release supercedes v5.4.40700169 to include new features and bug fixes.
+This release supersedes v5.4.40700169 to include new features and bug fixes.
 
 ### New Features
-- Support for Redis Enterpirse Cluster 5.4.10-22
+- Support for Redis Enterprise Cluster 5.4.10-22
   - [Redis Enterprise 5.4.10 release notes](https://docs.redislabs.com/latest/rs/release-notes/rs-5-4-10-december-2019/)
 - Support for Pivotal Platform 2.7
 - Support for creating Redis Enterprise Modules' enabled databases with Service Broker
-- Improve upgrade and scaledown resiliency
+- Improve upgrade and scale-down resiliency
   - Demote master node before enslave
   - Implement retry mechanism to minimize enslave failures
 - Improve support for automation with `om`
@@ -41,10 +67,10 @@ This release supercedes v5.4.40700169 to include new features and bug fixes.
 
 **Release Date:** Jul 17, 2019
 
-This release supercedes v5.4.22700167 to include new features and bug fixes.
+This release supersedes v5.4.22700167 to include new features and bug fixes.
 
 ### New Features
-- Support for Redis Enterpirse Cluster 5.4.4-7
+- Support for Redis Enterprise Cluster 5.4.4-7
 - Support for Pivotal Platform 2.6
 - Support for BOSH DNS
 - Changing Pivotal Platform tile Resource Config defaults to include minimum persistent storage requirements
@@ -58,10 +84,10 @@ This release supercedes v5.4.22700167 to include new features and bug fixes.
 
 **Release Date:** Jul 17, 2019
 
-This release supercedes v5.4.22000164 to include new features and bug fixes.
+This release supersedes v5.4.22000164 to include new features and bug fixes.
 
 ### New Features
-- Support for Redis Enterpirse Cluster 5.4.2-24
+- Support for Redis Enterprise Cluster 5.4.2-24
 - Support for Pivotal Platform 2.5
 
 ### Fixed
@@ -73,7 +99,7 @@ This release supercedes v5.4.22000164 to include new features and bug fixes.
 
 **Release Date:** May 16, 2019
 
-This release supercedes v5.4.22000155 to include new features and bug fixes.
+This release supersedes v5.4.22000155 to include new features and bug fixes.
 
 ### New Features
 - Tile is based on Redis Enterprise release v5.4.2-20. [5.4.2 Release Notes](https://docs.redislabs.com/latest/rs/release-notes/rs-5-4-2-april-2019/).
@@ -89,10 +115,10 @@ This release supercedes v5.4.22000155 to include new features and bug fixes.
 
 **Release Date:** March 12, 2019
 
-This release supercedes 5.4.2400147 to include new features bug fixes.
+This release supersedes 5.4.2400147 to include new features bug fixes.
 
 ### New Features
-- Support for Pivotal Cloud Foundary Loggerator integration
+- Support for Pivotal Cloud Foundry Loggregator integration
 - Tile is based on Redis Enterprise release v5.4.0-26
 
 ### Fixed
@@ -103,7 +129,7 @@ This release supercedes 5.4.2400147 to include new features bug fixes.
 
 **Release Date:** February 11, 2019
 
-This release supercedes 5.4.2400142 to include bug fixes.
+This release supersedes 5.4.2400142 to include bug fixes.
 
 ### Fixed
 - Required binaries are now included in BOSH tile, for air-gapped deployments

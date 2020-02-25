@@ -1,54 +1,15 @@
----
-title: Redis Enterprise Modules on Pivotal Platform
-owner: Partners
----
+#cf create-service redislabs small-redis RedisBloom -c '                                                                    {
+  "module_list":
+  [
+    {
+      "module_id":"0bea0987204293b26c877698e29dcdf3",
+      "module_args":""
+    }
+  ]
+}
+'
 
-This topic describes how to use Redis Enterprise Modules on Pivotal Platform.
-
-## <a id='modules-topic-1'></a> Redis Enterprise Modules Overview
-
-Redis Enterprise Modules reduces the need to maintain a specialty database for each application use case by offering a separate, dedicated, and optimized engine for each data model.
-Trusted, tested, and verified to work with Redis Enterprise, these modules include:
-<br>**[RedisGraph](https://oss.redislabs.com/redisgraph/)**
-<br>**[RedisJSON](https://oss.redislabs.com/redisjson/)**
-<br>**[RedisTimeSeries](https://oss.redislabs.com/redistimeseries/)**
-<br>**[RedisBloom](https://oss.redislabs.com/redisbloom/)**
-<br>**[RediSearch](https://oss.redislabs.com/redisearch/)**
-
-For more information please refer to the [Redis Enterprise Modules page](https://redislabs.com/redis-enterprise/modules/) on the [Redis Labs](https://redislabs.com/) Website.
-
-## <a id='modules-topic-2'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager CLI
-
-1. Perform 'cf login' to your foundation.
-
-1. Run the command ``# cf create-service redislabs [SERVICE PLAN] [SERVICE INSTANCE] -c [PARAMETERS_AS_JSON]`` <br>where:
-<br>*redislabs* is the default service name (in a Redis Enterprise Tile Manager multi-tile environment, please run ``# cf marketplace`` to determine the service name)
-<br>SERVICE PLAN uses one of the available Redis Enterprise service plans
-<br>SERVICE INSTANCE is the new service instance name
-<br>PARAMETERS_AS_JSON are the modules list to be loaded
-
-1. Consult the list of available modules and their module ids for the Redis Enterprise version installed on your foundation.<br>
-This can be achieved by having an operator run ``curl -L -v -k GET https://localhost:9443/v1/modules -u "[CLUSTER ADMIN USERNAME]:[CLUSTER ADMIN PASSWORD]" -H "Content-Type: application/json"`` on one of the Redis Enteprise nodes.
-<br>See the [appendix](modules.html#appendix-module-list) below for the list of module ids and their default arguments for release 5.4.102200007 (released for Pivotal Platform 2.7)<br>
-<br>For example, to create a `small-redis` plan database with the RedisBloom module:<br> ```cf create-service redislabs small-redis RedisBloom -c '                                                                    {
-"module_list":[{"module_id":"0bea0987204293b26c877698e29dcdf3","module_args":""}]}'```
-<br>```Creating service instance RedisBloom in org RedisLabs / space RL Space 1 as admin...
-OK```
-<p>Available service plans are listed in response to ``cf services`` or listed in either the tile's Ops Manager configuration, under Settings->Service Plans or in the Apps  Manager -> Marketplace screen:</p>
-
-![Import button](./images/pcf_ops_service_plan.png)
-
-![Import button](./images/pcf_apps_service_plans.png)
-
-## <a id='modules-topic-3'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager UI
-
-
-1. From Pivotal Platform Apps Manager go to Marketplace and select Redis Enterprise on Pivotal Platform.<br />![Import button](./images/pcf_apps_marketplace.png)
-1. Select a plan from the available plans listed and click "Select This Plan"<br />![Import button](./images/pcf_apps_service_plan.png)
-1. Select the "Add Parameter" option and turn on the "Enter as JSON" option. Enter the module list information in the same way as with the CLI option.
-1. Write an instance name and optionally choose to bind to a deployed app then click "Create".<br />![Import button](./images/pcf_apps_config_create_bf.png)<br />![Import button](./images/pcf_ops_service_plan_created_bf.png)
-
-## <a id='appendix-module-list'></a> Appendix: Module list for 5.4.102200007 (released for Pivotal Platform 2.7)
+## <a id='appendix-module-list'></a> Module list for 5.4.102200007 (released for Pivotal Platform 2.7)
 
 ```json
 [
@@ -198,5 +159,3 @@ OK```
     "uid":"7e5dd8e89e24b9a66e05d13748f28325"
   }
 ```
-
-For more information about Redis Enterprise Modules for Pivotal Platform, see the [Redis Enterprise Module documentation](https://docs.redislabs.com/latest/modules/).
