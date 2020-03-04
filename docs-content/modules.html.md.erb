@@ -1,9 +1,9 @@
 ---
-title: Redis Enterprise Modules on Pivotal Platform
+title: Redis Enterprise Modules on VMware Tanzu
 owner: Partners
 ---
 
-This topic describes how to use Redis Enterprise Modules on Pivotal Platform.
+This topic describes how to use Redis Enterprise Modules on VMware Tanzu.
 
 ## <a id='modules-topic-1'></a> Redis Enterprise Modules Overview
 
@@ -17,7 +17,7 @@ Trusted, tested, and verified to work with Redis Enterprise, these modules inclu
 
 For more information please refer to the [Redis Enterprise Modules page](https://redislabs.com/redis-enterprise/modules/) on the [Redis Labs](https://redislabs.com/) Website.
 
-## <a id='modules-topic-2'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager CLI
+## <a id='modules-topic-2'></a> Creating a Redis Enterprise Module Enabled Database instance via VMware Tanzu Apps Manager CLI
 
 1. Perform 'cf login' to your foundation.
 
@@ -28,8 +28,8 @@ For more information please refer to the [Redis Enterprise Modules page](https:/
 <br>PARAMETERS_AS_JSON are the modules list to be loaded
 
 1. Consult the list of available modules and their module ids for the Redis Enterprise version installed on your foundation.<br>
-This can be achieved by having an operator run ``curl -L -v -k GET https://localhost:9443/v1/modules -u "[CLUSTER ADMIN USERNAME]:[CLUSTER ADMIN PASSWORD]" -H "Content-Type: application/json"`` on one of the Redis Enteprise nodes.
-<br>See the [appendix](modules.html#appendix-module-list) below for the list of module ids and their default arguments for release 5.4.102200007 (released for Pivotal Platform 2.7)<br>
+This can be achieved by having an operator run ``curl -L -v -k GET https://localhost:9443/v1/modules -u "[CLUSTER ADMIN USERNAME]:[CLUSTER ADMIN TAS for VMsSWORD]" -H "Content-Type: application/json"`` on one of the Redis Enteprise nodes.
+<br>See the [appendix](modules.html#appendix-module-list) below for the list of module ids and their default arguments for release 5.4.102200007 (released for VMware Tanzu 2.7)<br>
 <br>For example, to create a `small-redis` plan database with the RedisBloom module:<br> ```cf create-service redislabs small-redis RedisBloom -c '                                                                    {
 "module_list":[{"module_id":"0bea0987204293b26c877698e29dcdf3","module_args":""}]}'```
 <br>```Creating service instance RedisBloom in org RedisLabs / space RL Space 1 as admin...
@@ -40,15 +40,15 @@ OK```
 
 ![Import button](./images/pcf_apps_service_plans.png)
 
-## <a id='modules-topic-3'></a> Creating a Redis Enterprise Module Enabled Database instance via Pivotal Platform Apps Manager UI
+## <a id='modules-topic-3'></a> Creating a Redis Enterprise Module Enabled Database instance via VMware Tanzu Apps Manager UI
 
 
-1. From Pivotal Platform Apps Manager go to Marketplace and select Redis Enterprise on Pivotal Platform.<br />![Import button](./images/pcf_apps_marketplace.png)
+1. From VMware Tanzu Apps Manager go to Marketplace and select Redis Enterprise on VMware Tanzu.<br />![Import button](./images/pcf_apps_marketplace.png)
 1. Select a plan from the available plans listed and click "Select This Plan"<br />![Import button](./images/pcf_apps_service_plan.png)
 1. Select the "Add Parameter" option and turn on the "Enter as JSON" option. Enter the module list information in the same way as with the CLI option.
 1. Write an instance name and optionally choose to bind to a deployed app then click "Create".<br />![Import button](./images/pcf_apps_config_create_bf.png)<br />![Import button](./images/pcf_ops_service_plan_created_bf.png)
 
-## <a id='appendix-module-list'></a> Appendix: Module list for 5.4.102200007 (released for Pivotal Platform 2.7)
+## <a id='appendix-module-list'></a> Appendix: Module list for 5.4.102200007 (released for VMware Tanzu 2.7)
 
 ```json
 [
@@ -199,4 +199,4 @@ OK```
   }
 ```
 
-For more information about Redis Enterprise Modules for Pivotal Platform, see the [Redis Enterprise Module documentation](https://docs.redislabs.com/latest/modules/).
+For more information about Redis Enterprise Modules for VMware Tanzu, see the [Redis Enterprise Module documentation](https://docs.redislabs.com/latest/modules/).

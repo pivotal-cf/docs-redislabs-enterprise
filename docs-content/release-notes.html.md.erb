@@ -1,9 +1,9 @@
 ---
-title: Redis Enterprise for Pivotal Platform Release Notes
+title: Redis Enterprise for VMware Tanzu Release Notes
 owner: Partners
 ---
 
-These are release notes for Redis Enterprise for Pivotal Platform.
+These are release notes for Redis Enterprise for VMware Tanzu.
 
 
 ## <a id="ver"></a> v5.4.102200010
@@ -13,7 +13,7 @@ These are release notes for Redis Enterprise for Pivotal Platform.
 This release supersedes v5.4.102200007 to include new features and bug fixes.
 
 ### New Features
-- Support for Pivotal Platform 2.8
+- Support for VMware Tanzu 2.8
 - Added the option to enable [service instance sharing](https://docs.pivotal.io/platform/application-service/2-8/services/enable-sharing.html) across spaces and organization
 - Added the ability to configure TLS within plans. Note that some of the pre-configured plans in a fresh tile install now have TLS configured as enabled by default
 - Added Shard Placement policy to plans configuration
@@ -40,7 +40,7 @@ This release supersedes v5.4.40700169 to include new features and bug fixes.
 ### New Features
 - Support for Redis Enterprise Cluster 5.4.10-22
   - [Redis Enterprise 5.4.10 release notes](https://docs.redislabs.com/latest/rs/release-notes/rs-5-4-10-december-2019/)
-- Support for Pivotal Platform 2.7
+- Support for VMware Tanzu 2.7
 - Support for creating Redis Enterprise Modules' enabled databases with Service Broker
 - Improve upgrade and scale-down resiliency
   - Demote master node before enslave
@@ -48,7 +48,7 @@ This release supersedes v5.4.40700169 to include new features and bug fixes.
 - Improve support for automation with `om`
   - Plan names are unique
   - Plans are configurable
-- Changed product references from "PCF" to "Pivotal Platform"
+- Changed product references from "PCF" to "VMware Tanzu"
 - Add the ability for database metrics to report db name (configurable)
 - Improve handling of extremely large MSET commands
 
@@ -71,9 +71,9 @@ This release supersedes v5.4.22700167 to include new features and bug fixes.
 
 ### New Features
 - Support for Redis Enterprise Cluster 5.4.4-7
-- Support for Pivotal Platform 2.6
+- Support for VMware Tanzu 2.6
 - Support for BOSH DNS
-- Changing Pivotal Platform tile Resource Config defaults to include minimum persistent storage requirements
+- Changing VMware Tanzu tile Resource Config defaults to include minimum persistent storage requirements
 
 ### Known Limitations
 - Smoke Test Errand fails, applying changes in Ops Manager after deploying tile in Recovery mode.
@@ -88,7 +88,7 @@ This release supersedes v5.4.22000164 to include new features and bug fixes.
 
 ### New Features
 - Support for Redis Enterprise Cluster 5.4.2-24
-- Support for Pivotal Platform 2.5
+- Support for VMware Tanzu 2.5
 
 ### Fixed
 - Redis tile drain script does not complete during BOSH deploy
@@ -140,7 +140,7 @@ This release supersedes 5.4.2400142 to include bug fixes.
 **Release Date:** January 30, 2019
 
 ### New Features
-- Added Pivotal Platform v2.4 Support
+- Added VMware Tanzu v2.4 Support
 - Updated stemcell to Ubuntu Xenial
 - TLS client authentication is now optional when enabling TLS for database communications
 - Tile based on Redis-Enterprise v5.4.0
@@ -152,8 +152,8 @@ This release supersedes 5.4.2400142 to include bug fixes.
 **Release Date:** August 31, 2018
 
 ### New Features
-- Added Pivotal Platform v2.3 Support, as of November 2, 2018
-- Pivotal Platform v2.2 Support
+- Added VMware Tanzu v2.3 Support, as of November 2, 2018
+- VMware Tanzu v2.2 Support
 - Tile based on Redis-Enterprise v5.2.2
 - For more information, see [Redis Enterprise Release Notes](https://redislabs.com/redis-enterprise-documentation/release-notes/).
 
@@ -167,7 +167,7 @@ This release supersedes 5.4.2400142 to include bug fixes.
 **Release Date:** June 21, 2018
 
 ### New Features
-- Pivotal Platform v2.1 Support
+- VMware Tanzu v2.1 Support
 - Backup to FTP / S3
 - Tile based on Redis-Enterprise v5.2
 - For more information, see [Redis Enterprise Release Notes](https://redislabs.com/redis-enterprise-documentation/release-notes/).
@@ -190,7 +190,7 @@ This release supersedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-- Pivotal Platform v2.0.x Support
+- VMware Tanzu v2.0.x Support
 - Added smoke-test errand
 - Tile based on Redis-Enterprise v5.0.1-30
 - Stemcell 3541.5 support
@@ -210,7 +210,7 @@ This release supersedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-- Built and tested new tile with Pivotal Platform v1.12.12 (ERT and Ops Manager)
+- Built and tested new tile with VMware Tanzu v1.12.12 (ERT and Ops Manager)
 - Updated Redislabs enterprise cluster version to v5.0.1-17
 - Upgrade support in Redis Enterprise tile
 - Syslog integration
@@ -222,14 +222,14 @@ This release supersedes 5.4.2400142 to include bug fixes.
 
 ### New Features
 
-**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple Pivotal Platform Foundations**
+**Geo-Distributed Active-Active Conflict-free Replicated Databases (CRDB) Across Multiple VMware Tanzu Foundations**
 Developing globally distributed applications can be challenging. Developers have to think about race conditions and complex combinations of events under geo-failovers and cross-region write conflicts. CRDBs simplify developing such applications by directly using built-in smarts for handling conflicting writes based on the data type in use. Instead of depending on just simplistic "last-writer-wins" type conflict resolution, geo-distributed CRDBs combines techniques defined in CRDT (conflict-free replicated data types) research with Redis types to provide smart and automatic conflict resolution based on the data type's intent. This also includes support for TCP Routers.
 
 For information, see [Developing with CRDBs](https://www.redislabs.com/redis-enterprise-documentation/developing/crdbs/").
 
-- Pivotal Platform CRDB Integration using Pivotal Platform TCP Router 16720, 16721
+- VMware Tanzu CRDB Integration using VMware Tanzu TCP Router 16720, 16721
 - CRDB Support without DNS (doc item #6) and 16711
-- Tile uses Pivotal Platform system domain to deploy tile 16045
+- Tile uses VMware Tanzu system domain to deploy tile 16045
 
 
 ## <a id="ver"></a> v5.0.0 (BETA)

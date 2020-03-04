@@ -1,12 +1,12 @@
 ---
-title: Backing Up and Restoring for Redis Enterprise for Pivotal Platform
+title: Backing Up and Restoring for Redis Enterprise for VMware Tanzu
 owner: Partners
 ---
 
-This topic describes how to backup and restore Redis Enterprise for Pivotal Platform.
+This topic describes how to backup and restore Redis Enterprise for VMware Tanzu.
 
-You must use the BOSH Backup and Restore (BBR) command-line tool to backup and restore your Pivotal Platform deployment.
-These backup and restore instructions apply specifically to your Redis Enterprise for Pivotal Platform deployment.
+You must use the BOSH Backup and Restore (BBR) command-line tool to backup and restore your VMware Tanzu deployment.
+These backup and restore instructions apply specifically to your Redis Enterprise for VMware Tanzu deployment.
 
 ## <a id='bbr-cli'></a> Installing the BBR Command-Line Tool
 
@@ -23,7 +23,7 @@ To install the BBR command-line tool:
 
 The BBR tool is extracted to `/releases/bbr`.
 
-## <a id='backup'></a> Back Up Redis Enterprise for Pivotal Platform
+## <a id='backup'></a> Back Up Redis Enterprise for VMware Tanzu
 
 Pivotal recommends that you run a daily backup.
 
@@ -38,7 +38,7 @@ Before you configure a backup process you must have:
     bosh -e cf deployments
     ```
 
-To backup your Redis Enterprise for Pivotal Platform deployment:
+To backup your Redis Enterprise for VMware Tanzu deployment:
 
 1. Run the backup command:
 
@@ -57,11 +57,11 @@ To backup your Redis Enterprise for Pivotal Platform deployment:
 
 1. Copy this backup archive from the Ops Manager machine to a dedicated storage location.
 
-## <a id='restore'></a> Restore Redis Enterprise for Pivotal Platform
+## <a id='restore'></a> Restore Redis Enterprise for VMware Tanzu
 
-To restore a Redis Enterprise for Pivotal Platform deployment:
+To restore a Redis Enterprise for VMware Tanzu deployment:
 
-1. On the new Pivotal Platform Foundation, install a redis-enterprise tile with the same configuration of the original tile.
+1. On the new VMware Tanzu Foundation, install a redis-enterprise tile with the same configuration of the original tile.
 
     <p class="note"><strong>Note:</strong> A different cluster name or number of machines than the original tile causes errors in the restore.</p>
 
