@@ -6,6 +6,27 @@ owner: Partners
 These are release notes for Redis Enterprise for VMware Tanzu.
 
 
+## <a id="ver"></a> v6.0.63900002
+
+**Release Date:** Aug 3, 2020
+
+This release supersedes v5.4.102200010 to include new features and bug fixes.
+
+### New Features
+- Support for Redis Enterprise Cluster 6.0.6-39
+  - [Redis Enterprise 6.0.6 release notes](https://docs.redislabs.com/latest/rs/release-notes/rs-6-0-may-2020/)
+- Support for VMware Tanzu 2.9
+- High availability for replica shards ([Slave HA](https://docs.redislabs.com/latest/rs/administering/database-operations/slave-ha/)) is now enabled by default with a 60 minute [grace period.](https://docs.redislabs.com/latest/rs/administering/database-operations/slave-ha/#grace-period)
+- Resource config now enforces lower CPU and Memory minimums to reduce resource utilization in development and test environments
+
+### Known Limitations
+- Cluster password **may not contain** the following characters:
+  - ":" (colon)
+  - " " (space)
+  - "'" (single quote)
+  - '"' (double quotes)
+
+
 ## <a id="ver"></a> v5.4.102200010
 
 **Release Date:** Feb 25, 2020
