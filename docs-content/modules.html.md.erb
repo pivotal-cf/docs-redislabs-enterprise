@@ -9,13 +9,13 @@ This topic describes how to use Redis Enterprise Modules on VMware Tanzu.
 
 Redis Enterprise Modules reduces the need to maintain a specialty database for each application use case by offering a separate, dedicated, and optimized engine for each data model.
 Trusted, tested, and verified to work with Redis Enterprise, these modules include:
-<br>**[RedisGraph](https://oss.redislabs.com/redisgraph/)**
-<br>**[RedisJSON](https://oss.redislabs.com/redisjson/)**
-<br>**[RedisTimeSeries](https://oss.redislabs.com/redistimeseries/)**
-<br>**[RedisBloom](https://oss.redislabs.com/redisbloom/)**
-<br>**[RediSearch](https://oss.redislabs.com/redisearch/)**
+<br>**[RedisGraph](https://oss.redis.com/redisgraph/)**
+<br>**[RedisJSON](https://oss.redis.com/redisjson/)**
+<br>**[RedisTimeSeries](https://oss.redis.com/redistimeseries/)**
+<br>**[RedisBloom](https://oss.redis.com/redisbloom/)**
+<br>**[RediSearch](https://oss.redis.com/redisearch/)**
 
-For more information please refer to the [Redis Enterprise Modules page](https://redislabs.com/redis-enterprise/modules/) on the [Redis Labs](https://redislabs.com/) Website.
+For more information please refer to the [Redis Enterprise Modules page](https://redis.com/redis-enterprise/modules/) on the [Redis](https://redis.com/) Website.
 
 ## <a id='modules-topic-2'></a> Creating a Redis Enterprise Module Enabled Database instance via VMware Tanzu Apps Manager CLI
 
@@ -48,7 +48,7 @@ OK```
 1. Select the "Add Parameter" option and turn on the "Enter as JSON" option. Enter the module list information in the same way as with the CLI option.
 1. Write an instance name and optionally choose to bind to a deployed app then click "Create".<br />![Import button](./images/pcf_apps_config_create_bf.png)<br />![Import button](./images/pcf_ops_service_plan_created_bf.png)
 
-## <a id='appendix-module-list'></a> Appendix: Module list for 6.0.206900001 (released for VMware Tanzu 2.11)
+## <a id='appendix-module-list'></a> Appendix: Module list for 6.0.209700002 (released for VMware Tanzu 2.11 and LTS 1)
 
 ```json
 [
@@ -90,6 +90,39 @@ OK```
         "capabilities": [
             "types",
             "replica_of",
+            "backup_restore",
+            "hash_policy",
+            "eviction_expiry",
+            "failover_migrate",
+            "persistence_aof",
+            "persistence_rdb",
+            "hash_policy",
+            "clustering",
+            "reshard_rebalance",
+            "intershard_tls"
+        ],
+        "command_line_args": "",
+        "config_command": "",
+        "dependencies": {},
+        "description": "Time-Series data structure for redis",
+        "display_name": "RedisTimeSeries",
+        "email": "danni@redislabs.com",
+        "homepage": "https://oss.redislabs.com/redistimeseries/",
+        "is_bundled": true,
+        "license": "Redis Source Available License Agreement",
+        "min_redis_pack_version": "6.0.12",
+        "min_redis_version": "5.0",
+        "module_name": "timeseries",
+        "semantic_version": "1.4.9",
+        "sha256": "18ef55576ecab96380deda61e2d0eb4b22b2e59ed3dc75fca2a816ab5d95af39",
+        "uid": "d625bfec1b0b1db1904b3d904f604ecb",
+        "version": 10409
+    },
+    {
+        "author": "RedisLabs",
+        "capabilities": [
+            "types",
+            "replica_of",
             "failover_migrate",
             "persistence_aof",
             "persistence_rdb",
@@ -113,72 +146,10 @@ OK```
         "min_redis_pack_version": "6.0.8",
         "min_redis_version": "6.0",
         "module_name": "search",
-        "semantic_version": "2.0.6",
-        "sha256": "3d13dc1ed57f5be10acbe3b971ef720e9ba8f0da7ed10dd34559e0d7e85d4a09",
-        "uid": "737bf664f5f59396f64db3afadd111ff",
-        "version": 20006
-    },
-    {
-        "author": "RedisLabs",
-        "capabilities": [
-            "types",
-            "failover_migrate",
-            "persistence_rdb",
-            "persistence_aof",
-            "clustering",
-            "replica_of",
-            "backup_restore",
-            "no_multi_key",
-            "intershard_tls"
-        ],
-        "command_line_args": "",
-        "config_command": "GRAPH.CONFIG",
-        "dependencies": {},
-        "description": "A graph database on top of Redis which supports Open-Cypher query language.",
-        "display_name": "RedisGraph",
-        "email": "roi@redislabs.com",
-        "homepage": "http://redisgraph.io",
-        "is_bundled": true,
-        "license": "Redis Source Available License Agreement",
-        "min_redis_pack_version": "6.0.8",
-        "min_redis_version": "5.0.7",
-        "module_name": "graph",
-        "semantic_version": "2.2.14",
-        "sha256": "cce012bf94193f7c906ea42a17e6522abda6c4fe427c6e6fb78ed341a52ccc87",
-        "uid": "3ee71e4396673b0b0de6043044316a79",
-        "version": 20214
-    },
-    {
-        "author": "RedisLabs",
-        "capabilities": [
-            "types",
-            "replica_of",
-            "backup_restore",
-            "hash_policy",
-            "eviction_expiry",
-            "failover_migrate",
-            "persistence_aof",
-            "persistence_rdb",
-            "hash_policy",
-            "clustering",
-            "reshard_rebalance"
-        ],
-        "command_line_args": "",
-        "config_command": "",
-        "dependencies": {},
-        "description": "Time-Series data structure for redis",
-        "display_name": "RedisTimeSeries",
-        "email": "danni@redislabs.com",
-        "homepage": "https://oss.redislabs.com/redistimeseries/",
-        "is_bundled": true,
-        "license": "Redis Source Available License Agreement",
-        "min_redis_pack_version": "6.0.12",
-        "min_redis_version": "5.0",
-        "module_name": "timeseries",
-        "semantic_version": "1.4.8",
-        "sha256": "70b829798bad773ad7521942e72cc119006d670767a9b10ae43169340b4259c4",
-        "uid": "db0925a9d032ce983bbc83557b4f5a04",
-        "version": 10408
+        "semantic_version": "2.0.8",
+        "sha256": "4964fc507daf9019aab6c0990bb039565480f2b65e616b49f0f77997e4bb8b54",
+        "uid": "185d404506c485d79a4d6a9ad461625e",
+        "version": 20008
     },
     {
         "author": "Redis Labs",
@@ -211,8 +182,38 @@ OK```
         "sha256": "b3999669cdaf65e153e6ce584af3a5eee0fbe67cc74596c70b0d988b54c09a37",
         "uid": "e36181c0ac30e9fc93e7b8aacf82a440",
         "version": 20204
+    },
+    {
+        "author": "RedisLabs",
+        "capabilities": [
+            "types",
+            "failover_migrate",
+            "persistence_rdb",
+            "persistence_aof",
+            "clustering",
+            "replica_of",
+            "backup_restore",
+            "no_multi_key",
+            "intershard_tls"
+        ],
+        "command_line_args": "",
+        "config_command": "GRAPH.CONFIG SET",
+        "dependencies": {},
+        "description": "A graph database on top of Redis which supports Open-Cypher query language.",
+        "display_name": "RedisGraph",
+        "email": "roi@redislabs.com",
+        "homepage": "http://redisgraph.io",
+        "is_bundled": true,
+        "license": "Redis Source Available License Agreement",
+        "min_redis_pack_version": "6.0.8",
+        "min_redis_version": "6.0",
+        "module_name": "graph",
+        "semantic_version": "2.4.6",
+        "sha256": "07d60f4c553e3dc2abff2b45201edd33c912c7461777c372d74572f31abf89af",
+        "uid": "31b86db5acb2b6c2f02f34123c9357a8",
+        "version": 20406
     }
 ]
 ```
 
-For more information about Redis Enterprise Modules for VMware Tanzu, see the [Redis Enterprise Module documentation](https://docs.redislabs.com/latest/modules/).
+For more information about Redis Enterprise Modules for VMware Tanzu, see the [Redis Enterprise Module documentation](https://docs.redis.com/latest/modules/).
