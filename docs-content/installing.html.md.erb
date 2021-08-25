@@ -23,15 +23,20 @@ This topic describes how to install and configure Redis Enterprise for VMware Ta
 1. Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have regions selected in each section and a network selected for the cluster to use. Click **Save**. A banner appears at the top of the page indicating changes have been successfully applied.<br />![Import button](./images/pcf_rp_config_full_screen.png)<br />![Import button](./images/pcf_config-success_tile.png)
 
 1. Navigate to the **Cluster Configuration** section on the left navigation bar. Enter the following details:
- * **Cluster Name**: Provide a subdomain for the cluster name. The Redis Enterprise cluster name is a subdomain under the system domain, which is found under the VMware Tanzu Application Service for VMs (TAS for VMs) in Ops Manager (TAS for VMs->Settings->Domains). For example, set the cluster name as `CLUSTERNAME.sys.redislabs.com` if your system domain is `sys.redislabs.com`. The cluster name specified, represents part of the connection string for Redis apps when connecting to Redis Enterprise databases using DNS-based connections.
+ * **Cluster Name**: Provide a subdomain for the cluster name. The Redis Enterprise cluster name is a subdomain under the system domain, which is found under the VMware Tanzu Application Service for VMs (TAS for VMs) in Ops Manager (TAS for VMs->Settings->Domains). For example, set the cluster name as `CLUSTERNAME.sys.redis.com` if your system domain is `sys.redis.com`. The cluster name specified, represents part of the connection string for Redis apps when connecting to Redis Enterprise databases using DNS-based connections.
  * **Admin Email**: Provide an email for the account that will have full administrative privileges to the new Redis Enterprise cluster.
  * **Admin account password**: Provide the password for the administrative account.
  * Optionally, for production clusters, you can also provide a static IP address of a set of static IP addresses (comma seperated) to use for cluster nodes. You can also enabled Multiple Availability Zone (Rack) awareness.
+ * **Slave HA**: Leave the default Enabled with 1800 second grace period (this is the default for TAS) or configure according to [High Availability for Slave Shards documentation](https://docs.redis.com/latest/rs/administering/database-operations/slave-ha/).
  * Save your changes by clicking **Save**.<br />![Import button](./images/pcf_rp_config_full_screen2.png)
 
 1. Navigate to the **Routing Configuration** section on the left navigation bar. If you would like to enable TCP Routing, configure the fields in this section. Otherwise, select **Disable**. Save your changes by clicking **Save**.<br />![Import button](./images/pcf_rp_config_routing.png)
 
-1. Optionally, Navigate to the **Cluster Certificates** section on the left navigation bar. You can paste in or generate the Proxy and API certificates. See the following example for generating a self-signed certificate. Save your changes by clicking **Save**.<br />![Import button](./images/pcf_rp_config_cert1.png)<br />![Import button](./images/pcf_rp_config_cert2.png)<br />![Import button](./images/pcf_rp_config_cert3.png)<br />![Import button](./images/pcf_rp_config_cert4.png)
+1. Navigate to the **Cluster Certificates** section on the left navigation bar. 
+ * **API Certificates**: You *must* paste in or generate the API certificates and private key. If generating using OpsMan, you must specify the cluster FQDN in the pop-up dialog.
+ * **CM Certificates**: You must paste in or generate the API certificates and private key in deployments utilizing the CM Web interface. If generating using OpsMan, you must specify the cluster FQDN in the pop-up dialog.
+ * **Metrics Endpoint Certificates**: You must paste in or generate the API certificates and private key in deployments utilizing the Metrics Endpoint. If generating using OpsMan, you must specify the cluster FQDN in the pop-up dialog.
+ * See the following example for generating a self-signed certificate. Save your changes by clicking **Save**.<br />![Import button](./images/pcf_rp_config_cert1.png)<br />![Import button](./images/pcf_rp_config_cert2.png)<br />![Import button](./images/pcf_rp_config_cert3.png)<br />![Import button](./images/pcf_rp_config_cert4.png)
 
 1. Optionally, Navigate to the **Service Plans** section on the left navigation bar. You can optionally add, remove or edit plans or choose to keep pre-configured plans. Save your changes by clicking **Save**.<br />![Import button](./images/pcf_service_plans.png)
 
@@ -40,7 +45,7 @@ This topic describes how to install and configure Redis Enterprise for VMware Ta
 1. Navigate to the **Resource Config** section on the left navigation bar. Ensure there are resources assigned to the required resources for Redis Enterprise.
 If you chose to enable metric export to **Loggregator**  in the previous step, you must ensure that exactly 1 *loggregator-agent* instance is configured.<br />![Import button](./images/pcf_resource_config.png)<br /><br />
 
-    <p class="note"><strong>Note:</strong> Redis Enterprise for VMware Tanzu enforces minimum hardware specification requirements for Redis Enterprise. For more information, see <a href="https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/"> the minimum hardware specifications</a> in the Redis Enterprise documentation.</p>
+    <p class="note"><strong>Note:</strong> Redis Enterprise for VMware Tanzu enforces minimum hardware specification requirements for Redis Enterprise. For more information, see <a href="https://docs.redis.com/latest/rs/administering/designing-production/hardware-requirements/"> the minimum hardware specifications</a> in the Redis Enterprise documentation.</p>
 
 1. Click **Save**.
 
@@ -50,4 +55,4 @@ If you chose to enable metric export to **Loggregator**  in the previous step, y
 
 <br />
 
-For more information about Redis Enterprise, see the [Redis Enterprise documentation](https://docs.redislabs.com/latest/rs/)
+For more information about Redis Enterprise, see the [Redis Enterprise documentation](https://docs.redis.com/latest/rs/)
