@@ -19,9 +19,10 @@ This release supersedes v6.2.84100001 to include new features and bug fixes
 
 ### Bug Fixes
 - Creating a database with Redis module/s fails (72868)
-- Address breaking change in 621 stemcell and bosh agent that prevented Redis Software processes from executing (RED-72869)
+- Address breaking change in 621 stemcell and bosh agent that prevented Redis Enterprise Software processes from executing (RED-72869)
 
 ### Known Limitations
+- A 'no-exec' directive was introduced for /var/opt directory in a previous release of the bosh agent. This resulted in some 621 stemcell minor versions preventing Redis Enterprise Software processes from executing. Redis Enterprise Software BOSH tile is strictly incopatible with stemcell minor 621.211. The issue was addressed in stemcell minor 621.224.
 - When trying to add new peer to existing A-A (CRDB) deployment from App Manager, it creates a new A-A deployment
 - Cluster password **may not contain** the following characters:
   - ":" (colon)
@@ -43,7 +44,7 @@ This release supersedes v6.0.209700002 to include new features
 ### Bug Fixes
 - Fixed recovery flow (RED-64910)
 
-### Known Limitations
+### Known Limitations 
 - When trying to add new peer to existing A-A (CRDB) deployment from App Manager, it creates a new A-A deployment
 - Cluster password **may not contain** the following characters:
   - ":" (colon)
