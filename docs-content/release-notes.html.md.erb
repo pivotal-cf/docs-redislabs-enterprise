@@ -5,6 +5,30 @@ owner: Partners
 
 These are release notes for Redis Enterprise for VMware Tanzu.
 
+## <a id="ver"></a> v6.2.109600003
+
+**Release Date:** April 14, 2022
+
+This release supersedes v6.2.84100001 to include new features and bug fixes
+
+### New Features
+- Support for Redis Enterprise Cluster 6.2.10-96
+  - [Redis Enterprise 6.2.10-96 release notes](https://docs.redis.com/latest/rs/release-notes/rs-6-2-10-february-2022/)
+- Added the ability to configure S3 URL for backup target in tile configuration (RED-71480)
+- Added the ability to install a new Redis Enterprise Software license key in tile configuration (RED-71481)
+
+### Bug Fixes
+- Creating a database with Redis module/s fails (72868)
+- Address breaking change in 621 stemcell and bosh agent that prevented Redis Software processes from executing (RED-72869)
+
+### Known Limitations
+- When trying to add new peer to existing A-A (CRDB) deployment from App Manager, it creates a new A-A deployment
+- Cluster password **may not contain** the following characters:
+  - ":" (colon)
+  - " " (space)
+  - "'" (single quote)
+  - '"' (double quotes)
+
 
 ## <a id="ver"></a> v6.2.84100001
 
