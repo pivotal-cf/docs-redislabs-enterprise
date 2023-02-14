@@ -52,7 +52,7 @@ To backup your Redis Enterprise for VMware Tanzu deployment:
   root@ip-10-0-0-241:~# BOSH_CLIENT_SECRET=Nu5iIIXcXN-RIKVBk6JNoCOJVLN1kB6N releases/bbr deployment --debug --target 10.0.16.5 --ca-cert=/var/tempest/workspaces/default/root_ca_certificate --username bbr_client --deployment redis-enterprise-b25242b578838c375ba1 backup
   ```
 
-  You can remove the --debug flag to reduce the command output.
+  You can remove the `--debug` flag to reduce the command output.
 
   The backup is saved in the directory named with `<deployment_name>_<date>`, for example: `redis-enterprise-b25242b578838c375ba1_20180312T135418Z`
 
